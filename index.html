@@ -10,6 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <base target="_blank" rel="noopener noreferrer">
 
 </head>
 
@@ -39,8 +40,9 @@
                   </p>
                   <p style="text-align:center">
                     <a href="mailto:hujh14@gmail.com">Email</a> &nbsp;/&nbsp;
+                    <a href="data/jeffrey_hu_resume.pdf">CV</a> &nbsp;/&nbsp;
                     <a href="https://scholar.google.com/citations?user=v8oP1FgAAAAJ&hl=en">Scholar</a> &nbsp;/&nbsp;
-                    <a href="https://x.com/jefequien/">Twitter</a> &nbsp;/&nbsp;
+                    <a href="https://x.com/jefequien/">X</a> &nbsp;/&nbsp;
                     <a href="https://www.linkedin.com/in/jeffrey-h-hu/">Linkedin</a> &nbsp;/&nbsp;
                     <a href="https://github.com/jefequien/">Github</a>
                   </p>
@@ -113,7 +115,6 @@
                   <tr>
                     <td style="padding:20px;width:100%;vertical-align:middle">
                       <h2>Contributions to gsplat</h2>
-                      <p>Work in progress</p>
                     </td>
                   </tr>
                 </tbody>
@@ -121,7 +122,6 @@
               <table
                 style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
                 <tbody>
-
                   <tr onmouseout="mcmc_stop()" onmouseover="mcmc_start()">
                     <td style="padding:20px;width:25%;vertical-align:middle">
                       <div class="one">
@@ -150,18 +150,19 @@
                         </span>
                       </a>
                       <br>
-                      <a href="https://arxiv.org/abs/2404.09591">Original Paper</a>
-                      /
                       <a href="https://github.com/nerfstudio-project/gsplat/pull/238">code</a>
                       /
+                      <a href="https://github.com/ubc-vision/3dgs-mcmc">original</a>
+                      /
                       <a href="https://x.com/janusch_patas/status/1807450236316496307">X</a>
+                      /
+                      <a href="https://radiancefields.com/nerfstudio-integrates-3dgs-mcmc">blog</a>
                       <p></p>
                       <p>
                         Improved densification strategy for 3DGS.
                       </p>
                     </td>
                   </tr>
-
                   <tr onmouseout="bil_stop()" onmouseover="bil_start()">
                     <td style="padding:20px;width:25%;vertical-align:middle">
                       <div class="one">
@@ -185,21 +186,84 @@
                       </script>
                     </td>
                     <td style="padding:20px;width:75%;vertical-align:middle">
-                      <a href="">
+                      <a href="https://arxiv.org/abs/2406.00448">
                         <span class="papertitle">Bilateral Guided Radiance Fields
                         </span>
                       </a>
                       <br>
-                      <a href="">code</a>
+                      <a href="https://github.com/nerfstudio-project/gsplat/pull/291">code</a>
                       /
-                      <a href="">X</a>
+                      <a href="https://github.com/yuehaowang/bilarf">original</a>
+                      /
+                      <a href="https://x.com/janusch_patas/status/1814194919394709743">X</a>
+                      /
+                      <a
+                        href="https://radiancefields.com/bilateral-guided-radiance-fields-merged-into-nerfstudio">blog</a>
                       <p></p>
                       <p>
                         Use bilateral grids to model exposure changes and other ISP effects.
                       </p>
                     </td>
                   </tr>
+                  <tr>
+                    <td style="padding:20px;width:25%;vertical-align:middle">
+                      <div class="one">
+                        <img src='images/compression.jpg' width="160">
+                      </div>
+                    </td>
+                    <td style="padding:20px;width:75%;vertical-align:middle">
+                      <a href="https://arxiv.org/abs/2312.13299">
+                        <span class="papertitle">Self-Organizing Gaussian Splats
+                        </span>
+                      </a>
+                      <br>
+                      <a href="https://github.com/nerfstudio-project/gsplat/pull/309">code</a>
+                      /
+                      <a href="https://github.com/fraunhoferhhi/Self-Organizing-Gaussians">original</a>
+                      /
+                      <a href="https://x.com/ruilong_li/status/1828136825422311835">X</a>
+                      /
+                      <a href="https://radiancefields.com/nerfstudio-adds-compression-to-gsplat">blog</a>
+                      <p></p>
+                      <p>
+                        Use image compression to compress gaussian splats.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr onmouseout="normal_stop()" onmouseover="normal_start()">
+                    <td style="padding:20px;width:25%;vertical-align:middle">
+                      <div class="one">
+                        <img src='images/normal.jpg' width="160">
+                        <div class="two" id='normal_image'>
+                          <video width=100% muted autoplay loop>
+                            <source src="images/normal.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </div>
+                      <script type="text/javascript">
+                        function normal_start() {
+                          document.getElementById('normal_image').style.opacity = "1";
+                        }
 
+                        function normal_stop() {
+                          document.getElementById('normal_image').style.opacity = "0";
+                        }
+                        normal_stop()
+                      </script>
+                    </td>
+                    <td style="padding:20px;width:75%;vertical-align:middle">
+                      <span class="papertitle">2.5D Gaussian Splatting</span>
+                      <br>
+                      <a href="https://github.com/nerfstudio-project/gsplat/pull/273">code</a>
+                      /
+                      <a href="https://github.com/hugoycj/2.5d-gaussian-splatting">original</a>
+                      <p></p>
+                      <p>
+                        Interpret the z-axis of Gaussians as its normal vector to achieve a similar effect to 2DGS.
+                      </p>
+                    </td>
+                  </tr>
                   <tr onmouseout="fisheye_stop()" onmouseover="fisheye_start()">
                     <td style="padding:20px;width:25%;vertical-align:middle">
                       <div class="one">
@@ -223,60 +287,40 @@
                       </script>
                     </td>
                     <td style="padding:20px;width:75%;vertical-align:middle">
-                      <a href="">
+                      <a href="https://arxiv.org/abs/2409.04751">
                         <span class="papertitle">Fisheye-GS
                         </span>
                       </a>
                       <br>
-                      <a href="">code</a>
+                      <a href="https://github.com/nerfstudio-project/gsplat/pull/398">code</a>
                       /
-                      <a href="">X</a>
+                      <a href="https://github.com/zmliao/Fisheye-GS">original</a>
+                      /
+                      <a href="https://x.com/ruilong_li/status/1839775411309555917">X</a>
                       <p></p>
                       <p>
                         Rewrite 3DGS projection function to support fisheye cameras.
                       </p>
                     </td>
                   </tr>
-
-                  <tr">
-                    <td style="padding:20px;width:25%;vertical-align:middle">
-                      <div class="one">
-                        <img src='images/gsplat.png' width="160">
-                      </div>
-                    </td>
-                    <td style="padding:20px;width:75%;vertical-align:middle">
-                      <a href="">
-                        <span class="papertitle">Self-Organizing Gaussian Splats
-                        </span>
-                      </a>
+                </tbody>
+              </table>
+              <table
+                style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+                <tbody>
+                  <tr>
+                    <td style="padding:0px">
                       <br>
-                      <a href="">code</a>
-                      /
-                      <a href="">X</a>
-                      <p></p>
-                      <p>
-                        Use image compression for compressing gaussian splats.
+                      <p style="text-align:right;font-size:small;">
+                        The template is stole from <a href="https://github.com/jonbarron/jonbarron_website">Jon
+                          Barron</a>.
                       </p>
                     </td>
-      </tr>
-
-    </tbody>
-  </table>
-  <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-    <tbody>
-      <tr>
-        <td style="padding:0px">
-          <br>
-          <p style="text-align:right;font-size:small;">
-            The template is stole from <a href="https://github.com/jonbarron/jonbarron_website">Jon
-              Barron</a>.
-          </p>
+                  </tr>
+                </tbody>
+              </table>
         </td>
       </tr>
-    </tbody>
-  </table>
-  </td>
-  </tr>
   </table>
 </body>
 
