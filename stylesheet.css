@@ -147,3 +147,11 @@ h2 {
 span.highlight {
   background-color: #ffffd0;
 }
+
+.colored-box {
+  width: 160px;
+  color: black;
+  padding: 20px;
+  display: inline-block;
+  border-radius: 10px;
+}
