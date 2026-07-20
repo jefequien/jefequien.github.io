@@ -6,10 +6,12 @@
   "scripts": {
     "format": "prettier --write . --ignore-unknown",
     "format:check": "prettier --check . --ignore-unknown",
+    "validate:html": "html-validate index.html",
     "validate:links": "node scripts/check-local-links.mjs",
-    "check": "npm run format:check && npm run validate:links"
+    "check": "npm run format:check && npm run validate:html && npm run validate:links"
   },
   "devDependencies": {
+    "html-validate": "11.5.6",
     "prettier": "3.9.5"
   },
   "engines": {

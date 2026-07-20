@@ -1,6 +1,2 @@
 data/
 images/
-
-# These legacy source files will join automated formatting in the site-refactor PR.
-index.html
-stylesheet.css

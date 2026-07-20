@@ -2,7 +2,7 @@
 
 Source for [jefequien.github.io](https://jefequien.github.io/), a static academic homepage adapted from [Jon Barron's website](https://github.com/jonbarron/jonbarron_website).
 
-The website is plain HTML and CSS. Development dependencies provide repeatable formatting and repository checks; there is no application build step.
+The deployed website is plain HTML and CSS. Development dependencies provide repeatable formatting and validation; there is no application build step.
 
 ## Local development
 
@@ -20,14 +20,32 @@ python3 -m http.server 8000
 
 Then open <http://localhost:8000/>.
 
-## Checks
+## Formatting and validation
+
+Format the maintained files:
 
 ```sh
 npm run format
+```
+
+Run formatting, HTML, and local-link checks:
+
+```sh
 npm run check
 ```
 
 The quality workflow runs the same checks for pull requests and pushes to `main`.
+
+## Adding a project
+
+1. Add the project's thumbnail and optional preview video to `images/`.
+2. Copy an existing `<article class="project">` block in `index.html`.
+3. Update its heading, description, links, media paths, dimensions, and alt text.
+4. Add `data-preview`, a focusable media container, and a `<video>` only when an animated preview exists.
+5. Run `npm run format` and `npm run check`.
+6. Use the pull request's hosted preview to review desktop and mobile layouts before merging.
+
+Static thumbnails must communicate the project without requiring hover, video, or JavaScript.
 
 ## Deployment
 
