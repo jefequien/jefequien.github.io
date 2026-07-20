@@ -1,0 +1,16 @@
+{
+  "name": "jefequien.github.io",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Jeffrey Hu's personal academic website",
+  "scripts": {
+    "format": "prettier --write index.html stylesheet.css README.md PLAN.md",
+    "format:check": "prettier --check index.html stylesheet.css README.md PLAN.md",
+    "validate": "html-validate index.html",
+    "check": "npm run format:check && npm run validate"
+  },
+  "devDependencies": {
+    "html-validate": "11.5.6",
+    "prettier": "3.9.5"
+  }
+}
