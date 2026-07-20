@@ -35,6 +35,7 @@ The quality workflow runs the same checks for pull requests and pushes to `main`
 - GitHub Actions stages only the website files and publishes production to `gh-pages`.
 - Pull requests are published beneath `/pr-preview/pr-<number>/` and receive a preview link.
 - Preview files are removed automatically when their pull request closes.
-- The deployment workflows serialize writes so production and preview updates cannot race.
+- Production deploys preserve the preview directory and rebase instead of force-pushing deployment history.
+- Each pull request serializes its own preview updates so deploy and cleanup events stay ordered.
 
 The `gh-pages` branch is deployment output and should not be edited manually.
