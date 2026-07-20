@@ -1,0 +1,18 @@
+{
+  "name": "jefequien.github.io",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Jeffrey Hu's personal academic website",
+  "scripts": {
+    "format": "prettier --write . --ignore-unknown",
+    "format:check": "prettier --check . --ignore-unknown",
+    "validate:links": "node scripts/check-local-links.mjs",
+    "check": "npm run format:check && npm run validate:links"
+  },
+  "devDependencies": {
+    "prettier": "3.9.5"
+  },
+  "engines": {
+    "node": ">=24 <25"
+  }
+}

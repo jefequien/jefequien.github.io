@@ -1,0 +1,59 @@
+name: Deploy production
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages-publish
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy production
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          path: source
+          persist-credentials: false
+
+      - name: Stage the site
+        working-directory: source
+        run: ./scripts/stage-site.sh "${RUNNER_TEMP}/site"
+
+      - name: Check out deployment branch
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          ref: gh-pages
+          path: publish
+
+      - name: Publish production
+        env:
+          SITE_DIRECTORY: ${{ runner.temp }}/site
+        run: |
+          rsync --archive --delete \
+            --exclude .git/ \
+            --exclude pr-preview/ \
+            "${SITE_DIRECTORY}/" publish/
+
+          cd publish
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add --all
+
+          if git diff --cached --quiet; then
+            echo "Production is already up to date."
+            exit 0
+          fi
+
+          git commit -m "Deploy production from ${GITHUB_SHA}"
+          git push origin HEAD:gh-pages
