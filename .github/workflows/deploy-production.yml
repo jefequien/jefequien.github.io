@@ -57,6 +57,6 @@ jobs:
         with:
           branch: gh-pages
           folder: _site
-          clean-exclude: pr-preview
+          clean-exclude: preview
           force: false
           commit-message: Deploy production from ${{ github.sha }}
