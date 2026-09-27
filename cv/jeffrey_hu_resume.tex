@@ -30,6 +30,11 @@
   \textbf{#1}\hfill\textcolor{muted}{\small #2}\\
   \textit{#3}\hfill\textcolor{muted}{\small #4}\par
 }
+\newcommand{\educationentry}[5]{%
+  \textbf{#1}\hfill\textcolor{muted}{\small #2}\\
+  \textit{#3}\hfill\textcolor{muted}{\small #4}\\
+  Supervisor: Professor #5.\par
+}
 \newcommand{\publication}[3]{%
   {\raggedright\hyphenpenalty=10000\textbf{#1}\par}
   {\small\color{muted}#2\\
@@ -42,12 +47,10 @@ hujh14@gmail.com\enspace\textcolor{muted}{/}\enspace jefequien.github.io
 
 % Education dates: https://uk.linkedin.com/in/jeffrey-h-hu
 \section{Education}
-\entry{University of Cambridge}{2025--present}{PhD Student}{Cambridge, UK}
-Supervisor: Professor Ayush Tewari.
-
-\entry{Massachusetts Institute of Technology}{2014--2019}
-{Master of Science; Bachelor of Science}{Cambridge, MA}
-Supervisor: Professor Antonio Torralba.
+\educationentry{University of Cambridge}{2025--present}{PhD Student}{Cambridge, UK}{Ayush Tewari}
+\vspace{5pt}
+\educationentry{Massachusetts Institute of Technology}{2014--2019}
+{Master of Science; Bachelor of Science}{Cambridge, MA}{Antonio Torralba}
 
 \section{Research}
 % Inria dates: https://prod-rex-app.inria.fr/report/2025/graphdeco/index.html
@@ -131,7 +134,7 @@ Contributed to an open-source Gaussian splatting library for 3D reconstruction a
 \entry{Amazon Prime Air}{Jun 2016--Aug 2016}{Software Engineer Intern}{Seattle, WA}
 
 \section{Miscellaneous}
-\textbf{MIT Varsity squash} — Captain\par
+\textbf{MIT Varsity Squash} — Captain\\
 \textbf{Programming:} Python, PyTorch, C++, CUDA.\\
 \textbf{Interests:} squash, cycling, skiing, hiking.
 
