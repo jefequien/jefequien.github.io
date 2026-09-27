@@ -130,6 +130,7 @@ a:hover {
 }
 
 a:focus-visible,
+summary:focus-visible,
 [tabindex]:focus-visible {
   color: #b45309;
   outline: 2px solid #b45309;
@@ -172,7 +173,8 @@ h2 {
   line-height: 1.25;
 }
 
-h3 {
+h3,
+h4 {
   margin: 0;
   font-size: 14px;
   font-weight: 700;
@@ -202,8 +204,23 @@ h3 {
   padding: 20px;
 }
 
-.section-intro-compact {
-  padding-bottom: 4px;
+.publication {
+  margin: 20px 20px 32px;
+}
+
+.project-contributions {
+  grid-column: 1 / -1;
+}
+
+.project-contributions summary {
+  margin: 0 20px 12px;
+  padding-block: 10px;
+  color: #1772d0;
+  cursor: pointer;
+}
+
+.project-contributions summary:hover {
+  color: #b45309;
 }
 
 .project {
@@ -367,6 +384,14 @@ footer p {
   .project-media-featured,
   .project-media-tall {
     aspect-ratio: 16 / 9;
+  }
+
+  .publication {
+    margin: 20px 4px 28px;
+  }
+
+  .project-contributions summary {
+    margin-inline: 4px;
   }
 
   .project-content {
