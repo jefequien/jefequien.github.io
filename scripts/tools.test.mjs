@@ -1,6 +1,14 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { cpSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import {
+  chmodSync,
+  cpSync,
+  mkdtempSync,
+  mkdirSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -72,4 +80,39 @@ test("staging copies the site and refuses nonempty destinations without modifyin
   writeFileSync(join(destination, ".hidden"), "keep this too");
   assert.equal(stage().status, 1);
   assert.equal(readFileSync(join(destination, ".hidden"), "utf8"), "keep this too");
+});
+
+test("CV build publishes only successful compilation and works outside the repository", (t) => {
+  const root = fixture(t);
+  const build = join(root, "scripts", "build-cv.sh");
+  cpSync(join(scripts, "build-cv.sh"), build);
+  mkdirSync(join(root, "cv"));
+  mkdirSync(join(root, "website", "data"));
+  mkdirSync(join(root, "bin"));
+  const source = join(root, "cv", "jeffrey_hu_resume.tex");
+  const pdf = join(root, "website", "data", "jeffrey_hu_resume.pdf");
+  writeFileSync(source, "CV source");
+  writeFileSync(pdf, "previous PDF");
+  const compiler = join(root, "bin", "tectonic");
+  writeFileSync(
+    compiler,
+    `#!/usr/bin/env bash
+set -eu
+[[ "$1" == "--untrusted" && "$2" == "--outdir" ]]
+[[ -f "$4" ]]
+printf 'compiled PDF' > "$3/jeffrey_hu_resume.pdf"
+exit "$CV_TEST_EXIT"
+`,
+  );
+  chmodSync(compiler, 0o755);
+  const run = (exit) =>
+    spawnSync("bash", [build], {
+      cwd: tmpdir(),
+      env: { ...process.env, PATH: `${join(root, "bin")}:${process.env.PATH}`, CV_TEST_EXIT: exit },
+      encoding: "utf8",
+    });
+  assert.notEqual(run("1").status, 0);
+  assert.equal(readFileSync(pdf, "utf8"), "previous PDF");
+  assert.equal(run("0").status, 0);
+  assert.equal(readFileSync(pdf, "utf8"), "compiled PDF");
 });

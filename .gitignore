@@ -1,2 +1,5 @@
 node_modules/
 .DS_Store
+
+# Generated from cv/jeffrey_hu_resume.tex by Tectonic.
+website/data/jeffrey_hu_resume.pdf

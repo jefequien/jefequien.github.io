@@ -9,7 +9,8 @@
     "validate:html": "html-validate website/index.html",
     "validate:links": "node scripts/check-local-links.mjs",
     "test": "node --test scripts/*.test.mjs",
-    "check": "npm run format:check && npm run validate:html && npm run validate:links && npm test"
+    "check": "npm run build:cv && npm run format:check && npm run validate:html && npm run validate:links && npm test",
+    "build:cv": "bash scripts/build-cv.sh"
   },
   "devDependencies": {
     "html-validate": "11.6.0",

@@ -2,9 +2,9 @@
 
 Source for [jefequien.github.io](https://jefequien.github.io/), a static academic homepage adapted from [Jon Barron's website](https://github.com/jonbarron/jonbarron_website).
 
-The deployed website is plain HTML and CSS. Development dependencies provide repeatable formatting and validation; there is no application build step.
+The deployed website is plain HTML and CSS. Development dependencies provide repeatable formatting and validation. Tectonic builds the CV from LaTeX; the website itself has no application build step.
 
-All published source files live in `website/`: `index.html`, `stylesheet.css`, `images/`, and `data/`. The repository root contains development configuration and documentation, `scripts/` contains maintenance tools, and `.github/` contains workflows. Run npm commands from the repository root.
+Published website files live in `website/`: `index.html`, `stylesheet.css`, `images/`, and `data/`. The CV source lives in `cv/`; its generated PDF is written to `website/data/` and is not committed. The repository root contains development configuration and documentation, `scripts/` contains maintenance tools, and `.github/` contains workflows. Run npm commands from the repository root.
 
 ## Local development
 
@@ -13,6 +13,8 @@ Use Node.js 24, as specified by `engines.node` in `package.json`, and install th
 ```sh
 npm install
 ```
+
+Install Tectonic as described under [CV](#cv), then run `npm run build:cv` to generate the PDF on a fresh checkout.
 
 Start a local server from the repository root:
 
@@ -30,13 +32,27 @@ Format the maintained files:
 npm run format
 ```
 
-Run formatting, HTML, and local-link checks:
+Build the CV and run formatting, HTML, and local-link checks (requires Tectonic):
 
 ```sh
 npm run check
 ```
 
 The Quality workflow runs these checks for pull requests. Pushes to `main` run them once inside the preview workflow, before publishing. Local-link checks verify referenced files and HTML fragment targets.
+
+## CV
+
+Edit `cv/jeffrey_hu_resume.tex`. The two-page CV uses the prose from the previous PDF, with current research, education, and publications added.
+
+Install [Tectonic 0.17.0](https://github.com/tectonic-typesetting/tectonic/releases/tag/tectonic%400.17.0), the version pinned in CI, and ensure `tectonic` is on your `PATH`. Then build:
+
+```sh
+npm run build:cv
+```
+
+This generates `website/data/jeffrey_hu_resume.pdf`, keeping the site's existing CV URL. The first build downloads the required TeX packages and fonts; subsequent builds use Tectonic's cache. No full TeX Live installation is needed. A failed compilation leaves the previous PDF intact.
+
+`npm run check` rebuilds the CV before validating the site. PR checks, preview deployments, and manual production releases all install Tectonic and run this same command. Review the generated PDF's content and both pages before releasing; edit the LaTeX source rather than the PDF.
 
 ## Adding a project
 
@@ -64,7 +80,7 @@ Paper abstracts must remain verbatim, including any link text within the abstrac
 
 The `gh-pages` branch is deployment output and should not be edited manually.
 
-For local staging, run `./scripts/stage-site.sh DESTINATION` from the repository root. The destination must be new or empty; the script refuses to overwrite existing files.
+For local staging, first run `npm run check` to build the CV, then run `./scripts/stage-site.sh DESTINATION` from the repository root. The destination must be new or empty; the script refuses to overwrite existing files.
 
 ### Release production
 
