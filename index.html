@@ -38,7 +38,7 @@
         <div class="profile-content">
           <h1>Jeffrey Hu</h1>
           <p>
-            Hi, I'm Jeffrey! I'm a first year PhD student at the University of Cambridge supervised
+            Hi, I'm Jeffrey! I'm a second year PhD student at the University of Cambridge supervised
             by Professor <a href="https://ayushtewari.com/">Ayush Tewari</a>. Previously, I was a
             research engineer at the GraphDeco group in INRIA with Professor
             <a href="https://www-sop.inria.fr/members/George.Drettakis/">George Drettakis</a>. I was
@@ -85,14 +85,191 @@
           </p>
         </div>
 
-        <article class="project project-featured">
+        <article class="project">
+          <!-- Preview source: https://ayushtewari.com/projects/srender/videos/Teaser%20Video.mp4 at 00:08 -->
+          <figure
+            class="project-media project-media-featured"
+            tabindex="0"
+            data-preview
+            aria-label="Video preview for Efficient Camera-Controlled Video Generation"
+          >
+            <img
+              src="images/sparse-diffusion.webp"
+              alt="Teaser frame showing generated keyframes, a reconstructed temple, and rendered video frames"
+              width="1920"
+              height="1080"
+              loading="lazy"
+            />
+            <video
+              class="project-video"
+              poster="images/sparse-diffusion.webp"
+              muted
+              loop
+              playsinline
+              preload="none"
+              aria-hidden="true"
+            >
+              <source src="images/sparse-diffusion.mp4" type="video/mp4" />
+            </video>
+          </figure>
+          <div class="project-content">
+            <h3>
+              <a href="https://ayushtewari.com/projects/srender/"
+                >Efficient Camera-Controlled Video Generation of Static Scenes via Sparse Diffusion
+                and 3D Rendering</a
+              >
+            </h3>
+            <p class="project-citation">
+              Jieying Chen, <strong>Jeffrey Hu</strong>, Joan Lasenby, Ayush Tewari<br /><em
+                >arXiv</em
+              >, 2026
+            </p>
+            <p class="project-links">
+              <a href="https://ayushtewari.com/projects/srender/">project page</a>
+              <span aria-hidden="true">/</span>
+              <a href="https://arxiv.org/abs/2601.09697">paper</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="project">
+          <!-- Preview source: https://www-sop.inria.fr/reves/Basilic/2026/LHLBD26/Intrinsic3DGS.png -->
+          <figure
+            class="project-media project-media-featured"
+            tabindex="0"
+            data-preview
+            aria-label="Video preview for Intrinsic Decomposition and Editing of 3D Gaussian Splats"
+          >
+            <img
+              src="images/intrinsic.webp"
+              alt="Edited indoor scene from Intrinsic Decomposition and Editing of 3D Gaussian Splats"
+              width="640"
+              height="450"
+              loading="lazy"
+            />
+            <!-- Video source: https://repo-sam.inria.fr/nerphys/intr_decomp_3dgs/content/edit_teaser.mp4 -->
+            <video
+              class="project-video"
+              poster="images/intrinsic.webp"
+              muted
+              loop
+              playsinline
+              preload="none"
+              aria-hidden="true"
+            >
+              <source src="images/intrinsic.mp4" type="video/mp4" />
+            </video>
+          </figure>
+          <div class="project-content">
+            <h3>
+              <a href="https://repo-sam.inria.fr/nerphys/intr_decomp_3dgs/"
+                >Intrinsic Decomposition and Editing of 3D Gaussian Splats</a
+              >
+            </h3>
+            <p class="project-citation">
+              Alexandre Lanvin, <strong>Jeffrey Hu</strong>, Simon Lucas, Adrien Bousseau, George
+              Drettakis<br /><em>I3D</em>, 2026
+            </p>
+            <p class="project-links">
+              <a href="https://repo-sam.inria.fr/nerphys/intr_decomp_3dgs/">project page</a>
+              <span aria-hidden="true">/</span>
+              <a href="https://arxiv.org/abs/2606.31637">paper</a>
+              <span aria-hidden="true">/</span>
+              <a href="https://github.com/graphdeco-inria/intr_decomp_3dgs">code</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="project">
+          <!-- Preview source: https://www-sop.inria.fr/reves/Basilic/2026/THMCD26/teaser.jpg -->
           <figure class="project-media project-media-featured">
             <img
-              src="images/gsplat.png"
-              alt="Rendering produced with the gsplat Gaussian splatting library"
-              width="330"
-              height="194"
+              src="images/oscillatory.webp"
+              alt="Trees and potted plants reconstructed with adaptive spatio-temporal Gaussian splatting"
+              width="640"
+              height="375"
+              loading="lazy"
             />
+          </figure>
+          <div class="project-content">
+            <h3>
+              <a href="https://repo-sam.inria.fr/nerphys/adaptive-spatio-temporal/"
+                >Adaptive Spatio-Temporal 3D Gaussian Splatting for Scenes with Oscillatory
+                Motion</a
+              >
+            </h3>
+            <p class="project-citation">
+              Petros Tzathas, <strong>Jeffrey Hu</strong>, Andréas Meuleman, Guillaume Cordonnier,
+              George Drettakis<br /><em>Eurographics</em>, 2026
+            </p>
+            <p class="project-links">
+              <a href="https://repo-sam.inria.fr/nerphys/adaptive-spatio-temporal/">project page</a>
+              <span aria-hidden="true">/</span>
+              <a
+                href="https://repo-sam.inria.fr/nerphys/adaptive-spatio-temporal/AdaptiveSpatioTemporal_authors.pdf"
+                >paper</a
+              >
+              <span aria-hidden="true">/</span>
+              <a href="https://github.com/graphdeco-inria/adaptive-spatio-temporal-gaussians"
+                >code</a
+              >
+            </p>
+          </div>
+        </article>
+
+        <article class="project">
+          <!-- Preview source: https://repo-sam.inria.fr/nerphys/editable-gaussian-reflections/content/editing_results.png -->
+          <figure
+            class="project-media project-media-featured"
+            tabindex="0"
+            data-preview
+            aria-label="Video preview for Editable Physically-based Reflections in Raytraced Gaussian Radiance Fields"
+          >
+            <img
+              src="images/reflections.webp"
+              alt="Examples of edited reflectance, orientation, and roughness in a reconstructed kitchen scene"
+              width="640"
+              height="382"
+              loading="lazy"
+            />
+            <!-- Video source: https://repo-sam.inria.fr/nerphys/editable-gaussian-reflections/content/teaser.mp4 -->
+            <video
+              class="project-video"
+              poster="images/reflections.webp"
+              muted
+              loop
+              playsinline
+              preload="none"
+              aria-hidden="true"
+            >
+              <source src="images/reflections.mp4" type="video/mp4" />
+            </video>
+          </figure>
+          <div class="project-content">
+            <h3>
+              <a href="https://repo-sam.inria.fr/nerphys/editable-gaussian-reflections/"
+                >Editable Physically-based Reflections in Raytraced Gaussian Radiance Fields</a
+              >
+            </h3>
+            <p class="project-citation">
+              Yohan Poirier-Ginter, <strong>Jeffrey Hu</strong>, Jean-François Lalonde, George
+              Drettakis<br /><em>SIGGRAPH Asia</em>, 2025
+            </p>
+            <p class="project-links">
+              <a href="https://repo-sam.inria.fr/nerphys/editable-gaussian-reflections/"
+                >project page</a
+              >
+              <span aria-hidden="true">/</span>
+              <a href="https://arxiv.org/abs/2606.30861">paper</a>
+              <span aria-hidden="true">/</span>
+              <a href="https://github.com/graphdeco-inria/editable-gaussian-reflections">code</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="project project-featured">
+          <figure class="project-media project-media-featured">
+            <img src="images/gsplat.png" alt="gsplat logo" width="330" height="194" />
           </figure>
           <div class="project-content">
             <h3>
@@ -104,228 +281,257 @@
               Vickie Ye, Ruilong Li, Justin Kerr, Matias Turkulainen, Brent Yi, Zhuoyang Pan, Otto
               Seiskari, Jianbo Ye, <strong>Jeffrey Hu</strong>, Matthew Tancik, Angjoo Kanazawa
               <br />
-              <em>JMLR</em>, 2024
+              <em>JMLR</em>, 2025
             </p>
             <p class="project-links">
               <a href="https://docs.gsplat.studio/">project page</a>
               <span aria-hidden="true">/</span>
-              <a href="https://arxiv.org/abs/2409.06765">arXiv</a>
+              <a href="https://arxiv.org/abs/2409.06765">paper</a>
               <span aria-hidden="true">/</span>
               <a href="https://github.com/nerfstudio-project/gsplat">code</a>
             </p>
-            <p>
-              gsplat is an open-source library designed for training and developing Gaussian
-              Splatting methods. It features a front-end with Python bindings compatible with the
-              PyTorch library and a back-end with highly optimized CUDA kernels. gsplat offers
-              numerous features that enhance the optimization of Gaussian Splatting models, which
-              include optimization improvements for speed, memory, and convergence times.
-              Experimental results demonstrate that gsplat achieves up to 10% less training time and
-              4x less memory than the original implementation. Utilized in several research
-              projects, gsplat is actively maintained on GitHub. Source code is available at
-              <a href="https://github.com/nerfstudio-project/gsplat">this https URL</a> under Apache
-              License 2.0. We welcome contributions from the open-source community.
-            </p>
-          </div>
-        </article>
-      </section>
+            <details class="project-contributions">
+              <summary>Contributions</summary>
+              <article class="project">
+                <figure
+                  class="project-media"
+                  tabindex="0"
+                  data-preview
+                  aria-label="Preview for 3D Gaussian Splatting as Markov Chain Monte Carlo"
+                >
+                  <img
+                    src="images/mcmc.jpg"
+                    alt="Comparison of Gaussian splatting densification results"
+                    width="480"
+                    height="160"
+                    loading="lazy"
+                  />
+                  <video
+                    class="project-video"
+                    muted
+                    loop
+                    playsinline
+                    preload="none"
+                    aria-hidden="true"
+                  >
+                    <source src="images/mcmc.mp4" type="video/mp4" />
+                  </video>
+                </figure>
+                <div class="project-content">
+                  <h4>
+                    <a href="https://github.com/nerfstudio-project/gsplat/pull/238"
+                      >3D Gaussian Splatting as Markov Chain Monte Carlo</a
+                    >
+                  </h4>
+                  <p class="project-links">
+                    <a href="https://github.com/ubc-vision/3dgs-mcmc">reference</a>
+                    <span aria-hidden="true">/</span>
+                    <a href="https://x.com/janusch_patas/status/1807450236316496307">X</a>
+                    <span aria-hidden="true">/</span>
+                    <a href="https://radiancefields.com/nerfstudio-integrates-3dgs-mcmc">blog</a>
+                  </p>
+                  <p>Improved densification strategy for 3DGS.</p>
+                </div>
+              </article>
 
-      <section class="section" aria-labelledby="contributions-heading">
-        <div class="section-intro section-intro-compact">
-          <h2 id="contributions-heading">Contributions to gsplat</h2>
-        </div>
+              <article class="project">
+                <figure
+                  class="project-media"
+                  tabindex="0"
+                  data-preview
+                  aria-label="Preview for Bilateral Guided Radiance Fields"
+                >
+                  <img
+                    src="images/bilateral.jpg"
+                    alt="Radiance-field renderings with different exposure effects"
+                    width="480"
+                    height="160"
+                    loading="lazy"
+                  />
+                  <video
+                    class="project-video"
+                    muted
+                    loop
+                    playsinline
+                    preload="none"
+                    aria-hidden="true"
+                  >
+                    <source src="images/bilateral.mp4" type="video/mp4" />
+                  </video>
+                </figure>
+                <div class="project-content">
+                  <h4>
+                    <a href="https://github.com/nerfstudio-project/gsplat/pull/291"
+                      >Bilateral Guided Radiance Fields</a
+                    >
+                  </h4>
+                  <p class="project-links">
+                    <a href="https://github.com/yuehaowang/bilarf">reference</a>
+                    <span aria-hidden="true">/</span>
+                    <a href="https://x.com/janusch_patas/status/1814194919394709743">X</a>
+                    <span aria-hidden="true">/</span>
+                    <a
+                      href="https://radiancefields.com/bilateral-guided-radiance-fields-merged-into-nerfstudio"
+                      >blog</a
+                    >
+                  </p>
+                  <p>
+                    Use bilateral grids to model changes in camera exposure and other ISP effects
+                    for gaussian splats.
+                  </p>
+                </div>
+              </article>
 
-        <article class="project">
-          <figure
-            class="project-media"
-            tabindex="0"
-            data-preview
-            aria-label="Preview for 3D Gaussian Splatting as Markov Chain Monte Carlo"
-          >
-            <img
-              src="images/mcmc.jpg"
-              alt="Comparison of Gaussian splatting densification results"
-              width="480"
-              height="160"
-              loading="lazy"
-            />
-            <video class="project-video" muted loop playsinline preload="none" aria-hidden="true">
-              <source src="images/mcmc.mp4" type="video/mp4" />
-            </video>
-          </figure>
-          <div class="project-content">
-            <h3>
-              <a href="https://arxiv.org/abs/2404.09591"
-                >3D Gaussian Splatting as Markov Chain Monte Carlo</a
-              >
-            </h3>
-            <p class="project-links">
-              <a href="https://github.com/nerfstudio-project/gsplat/pull/238">code</a>
-              <span aria-hidden="true">/</span>
-              <a href="https://github.com/ubc-vision/3dgs-mcmc">original</a>
-              <span aria-hidden="true">/</span>
-              <a href="https://x.com/janusch_patas/status/1807450236316496307">X</a>
-              <span aria-hidden="true">/</span>
-              <a href="https://radiancefields.com/nerfstudio-integrates-3dgs-mcmc">blog</a>
-            </p>
-            <p>Improved densification strategy for 3DGS.</p>
-          </div>
-        </article>
+              <article class="project">
+                <figure class="project-media">
+                  <img
+                    src="images/compression.jpg"
+                    alt="Visualization of compressed self-organizing Gaussian splats"
+                    width="1180"
+                    height="394"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="project-content">
+                  <h4>
+                    <a href="https://github.com/nerfstudio-project/gsplat/pull/309"
+                      >Self-Organizing Gaussian Splats</a
+                    >
+                  </h4>
+                  <p class="project-links">
+                    <a href="https://github.com/fraunhoferhhi/Self-Organizing-Gaussians"
+                      >reference</a
+                    >
+                    <span aria-hidden="true">/</span>
+                    <a href="https://x.com/ruilong_li/status/1828136825422311835">X</a>
+                    <span aria-hidden="true">/</span>
+                    <a href="https://w-m.github.io/3dgs-compression-survey/#hu2024gsplat"
+                      >leaderboard</a
+                    >
+                  </p>
+                  <p>Use image compression to compress gaussian splats.</p>
+                </div>
+              </article>
 
-        <article class="project">
-          <figure
-            class="project-media"
-            tabindex="0"
-            data-preview
-            aria-label="Preview for Bilateral Guided Radiance Fields"
-          >
-            <img
-              src="images/bilateral.jpg"
-              alt="Radiance-field renderings with different exposure effects"
-              width="480"
-              height="160"
-              loading="lazy"
-            />
-            <video class="project-video" muted loop playsinline preload="none" aria-hidden="true">
-              <source src="images/bilateral.mp4" type="video/mp4" />
-            </video>
-          </figure>
-          <div class="project-content">
-            <h3>
-              <a href="https://arxiv.org/abs/2406.00448">Bilateral Guided Radiance Fields</a>
-            </h3>
-            <p class="project-links">
-              <a href="https://github.com/nerfstudio-project/gsplat/pull/291">code</a>
-              <span aria-hidden="true">/</span>
-              <a href="https://github.com/yuehaowang/bilarf">original</a>
-              <span aria-hidden="true">/</span>
-              <a href="https://x.com/janusch_patas/status/1814194919394709743">X</a>
-              <span aria-hidden="true">/</span>
-              <a
-                href="https://radiancefields.com/bilateral-guided-radiance-fields-merged-into-nerfstudio"
-                >blog</a
-              >
-            </p>
-            <p>
-              Use bilateral grids to model changes in camera exposure and other ISP effects for
-              gaussian splats.
-            </p>
-          </div>
-        </article>
+              <article class="project">
+                <figure
+                  class="project-media project-media-tall"
+                  tabindex="0"
+                  data-preview
+                  aria-label="Preview for Fisheye-GS"
+                >
+                  <img
+                    src="images/fisheye.jpg"
+                    alt="Gaussian splatting rendering from a fisheye camera"
+                    width="480"
+                    height="340"
+                    loading="lazy"
+                  />
+                  <video
+                    class="project-video"
+                    muted
+                    loop
+                    playsinline
+                    preload="none"
+                    aria-hidden="true"
+                  >
+                    <source src="images/fisheye.mp4" type="video/mp4" />
+                  </video>
+                </figure>
+                <div class="project-content">
+                  <h4>
+                    <a href="https://github.com/nerfstudio-project/gsplat/pull/398">Fisheye-GS</a>
+                  </h4>
+                  <p class="project-links">
+                    <a href="https://github.com/zmliao/Fisheye-GS">reference</a>
+                    <span aria-hidden="true">/</span>
+                    <a href="https://x.com/ruilong_li/status/1839775411309555917">X</a>
+                  </p>
+                  <p>Rewrite 3DGS projection function to support fisheye cameras.</p>
+                </div>
+              </article>
 
-        <article class="project">
-          <figure class="project-media">
-            <img
-              src="images/compression.jpg"
-              alt="Visualization of compressed self-organizing Gaussian splats"
-              width="1180"
-              height="394"
-              loading="lazy"
-            />
-          </figure>
-          <div class="project-content">
-            <h3><a href="https://arxiv.org/abs/2312.13299">Self-Organizing Gaussian Splats</a></h3>
-            <p class="project-links">
-              <a href="https://github.com/nerfstudio-project/gsplat/pull/309">code</a>
-              <span aria-hidden="true">/</span>
-              <a href="https://github.com/fraunhoferhhi/Self-Organizing-Gaussians">original</a>
-              <span aria-hidden="true">/</span>
-              <a href="https://x.com/ruilong_li/status/1828136825422311835">X</a>
-              <span aria-hidden="true">/</span>
-              <a href="https://w-m.github.io/3dgs-compression-survey/#hu2024gsplat">leaderboard</a>
-            </p>
-            <p>Use image compression to compress gaussian splats.</p>
-          </div>
-        </article>
+              <article class="project">
+                <figure
+                  class="project-media"
+                  tabindex="0"
+                  data-preview
+                  aria-label="Preview for 2.5D Gaussian Splatting"
+                >
+                  <img
+                    src="images/normal.jpg"
+                    alt="Surface-normal visualization from 2.5D Gaussian Splatting"
+                    width="1102"
+                    height="360"
+                    loading="lazy"
+                  />
+                  <video
+                    class="project-video"
+                    muted
+                    loop
+                    playsinline
+                    preload="none"
+                    aria-hidden="true"
+                  >
+                    <source src="images/normal.mp4" type="video/mp4" />
+                  </video>
+                </figure>
+                <div class="project-content">
+                  <h4>
+                    <a href="https://github.com/nerfstudio-project/gsplat/pull/273"
+                      >2.5D Gaussian Splatting</a
+                    >
+                  </h4>
+                  <p class="project-links">
+                    <a href="https://github.com/hugoycj/2.5d-gaussian-splatting">reference</a>
+                  </p>
+                  <p>
+                    Interpret the z-axis of 3D Gaussians as their normal vector to achieve a similar
+                    effect to 2DGS.
+                  </p>
+                </div>
+              </article>
 
-        <article class="project">
-          <figure
-            class="project-media project-media-tall"
-            tabindex="0"
-            data-preview
-            aria-label="Preview for Fisheye-GS"
-          >
-            <img
-              src="images/fisheye.jpg"
-              alt="Gaussian splatting rendering from a fisheye camera"
-              width="480"
-              height="340"
-              loading="lazy"
-            />
-            <video class="project-video" muted loop playsinline preload="none" aria-hidden="true">
-              <source src="images/fisheye.mp4" type="video/mp4" />
-            </video>
-          </figure>
-          <div class="project-content">
-            <h3><a href="https://arxiv.org/abs/2409.04751">Fisheye-GS</a></h3>
-            <p class="project-links">
-              <a href="https://github.com/nerfstudio-project/gsplat/pull/398">code</a>
-              <span aria-hidden="true">/</span>
-              <a href="https://github.com/zmliao/Fisheye-GS">original</a>
-              <span aria-hidden="true">/</span>
-              <a href="https://x.com/ruilong_li/status/1839775411309555917">X</a>
-            </p>
-            <p>Rewrite 3DGS projection function to support fisheye cameras.</p>
-          </div>
-        </article>
-
-        <article class="project">
-          <figure
-            class="project-media"
-            tabindex="0"
-            data-preview
-            aria-label="Preview for 2.5D Gaussian Splatting"
-          >
-            <img
-              src="images/normal.jpg"
-              alt="Surface-normal visualization from 2.5D Gaussian Splatting"
-              width="1102"
-              height="360"
-              loading="lazy"
-            />
-            <video class="project-video" muted loop playsinline preload="none" aria-hidden="true">
-              <source src="images/normal.mp4" type="video/mp4" />
-            </video>
-          </figure>
-          <div class="project-content">
-            <h3>2.5D Gaussian Splatting</h3>
-            <p class="project-links">
-              <a href="https://github.com/nerfstudio-project/gsplat/pull/273">code</a>
-              <span aria-hidden="true">/</span>
-              <a href="https://github.com/hugoycj/2.5d-gaussian-splatting">original</a>
-            </p>
-            <p>
-              Interpret the z-axis of 3D Gaussians as their normal vector to achieve a similar
-              effect to 2DGS.
-            </p>
-          </div>
-        </article>
-
-        <article class="project">
-          <figure
-            class="project-media"
-            tabindex="0"
-            data-preview
-            aria-label="Preview for Defocus Deblurring"
-          >
-            <img
-              src="images/deblur.jpg"
-              alt="Gaussian splatting result with modeled defocus blur"
-              width="814"
-              height="360"
-              loading="lazy"
-            />
-            <video class="project-video" muted loop playsinline preload="none" aria-hidden="true">
-              <source src="images/deblur.mp4" type="video/mp4" />
-            </video>
-          </figure>
-          <div class="project-content">
-            <h3>Defocus Deblurring</h3>
-            <p class="project-links">
-              <a href="https://github.com/nerfstudio-project/gsplat/pull/469">code</a>
-              <span aria-hidden="true">/</span>
-              <a href="https://github.com/benhenryL/Deblurring-3D-Gaussian-Splatting">original</a>
-            </p>
-            <p>Implement camera defocus blur modeling in gsplat.</p>
+              <article class="project">
+                <figure
+                  class="project-media"
+                  tabindex="0"
+                  data-preview
+                  aria-label="Preview for Defocus Deblurring"
+                >
+                  <img
+                    src="images/deblur.jpg"
+                    alt="Gaussian splatting result with modeled defocus blur"
+                    width="814"
+                    height="360"
+                    loading="lazy"
+                  />
+                  <video
+                    class="project-video"
+                    muted
+                    loop
+                    playsinline
+                    preload="none"
+                    aria-hidden="true"
+                  >
+                    <source src="images/deblur.mp4" type="video/mp4" />
+                  </video>
+                </figure>
+                <div class="project-content">
+                  <h4>
+                    <a href="https://github.com/nerfstudio-project/gsplat/pull/469"
+                      >Defocus Deblurring</a
+                    >
+                  </h4>
+                  <p class="project-links">
+                    <a href="https://github.com/benhenryL/Deblurring-3D-Gaussian-Splatting"
+                      >reference</a
+                    >
+                  </p>
+                  <p>Implement camera defocus blur modeling in gsplat.</p>
+                </div>
+              </article>
+            </details>
           </div>
         </article>
       </section>
@@ -337,7 +543,7 @@
         <div class="misc-item">
           <div class="colored-box"><h3>Talks</h3></div>
           <p>
-            <a href="data/gsplat+mlps.pdf">Nerfstudio biweekly meeting, 2024</a>
+            <a href="data/gsplat+mlps.pdf">UC Berkeley, 2024</a>
             [<a
               href="https://drive.google.com/file/d/13FnyY6JW8skEaXs1PK3rbmX24jJ92oIH/view?usp=sharing"
               >slides</a
@@ -357,17 +563,39 @@
     <script>
       const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
+      const gsplat = document.querySelector(".project-featured");
+      const logo = gsplat.querySelector(":scope > .project-media");
+      const citation = gsplat.querySelector(":scope > .project-content");
+      const contributionsSummary = gsplat.querySelector("summary");
+
+      // Center against the citation and collapsed dropdown, even when it is open.
+      const positionLogo = () => {
+        const top = citation.getBoundingClientRect().top;
+        const bottom = contributionsSummary.getBoundingClientRect().bottom;
+        const offset =
+          (top + bottom - logo.getBoundingClientRect().height) / 2 -
+          gsplat.getBoundingClientRect().top;
+        gsplat.style.setProperty("--logo-offset", `${offset}px`);
+      };
+      const logoLayout = new ResizeObserver(positionLogo);
+      logoLayout.observe(citation);
+      logoLayout.observe(logo);
+      window.addEventListener("resize", positionLogo);
+      document.fonts.ready.then(positionLogo);
+
       document.querySelectorAll("[data-preview]").forEach((preview) => {
         const video = preview.querySelector("video");
 
         if (!video) return;
+
+        const contributions = preview.closest("details");
 
         let hovered = false;
         let focused = false;
         let playbackRequest = 0;
 
         const showPreview = () => {
-          if (reducedMotion.matches) return;
+          if (reducedMotion.matches || (contributions && !contributions.open)) return;
 
           const request = ++playbackRequest;
           video
@@ -402,6 +630,13 @@
         preview.addEventListener("blur", () => {
           focused = false;
           if (!hovered) hidePreview();
+        });
+        contributions?.addEventListener("toggle", () => {
+          if (!contributions.open) {
+            hovered = false;
+            focused = false;
+            hidePreview();
+          }
         });
         video.addEventListener("error", hidePreview);
         reducedMotion.addEventListener("change", hidePreview);

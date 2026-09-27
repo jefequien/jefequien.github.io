@@ -130,6 +130,7 @@ a:hover {
 }
 
 a:focus-visible,
+summary:focus-visible,
 [tabindex]:focus-visible {
   color: #b45309;
   outline: 2px solid #b45309;
@@ -172,7 +173,8 @@ h2 {
   line-height: 1.25;
 }
 
-h3 {
+h3,
+h4 {
   margin: 0;
   font-size: 14px;
   font-weight: 700;
@@ -202,8 +204,47 @@ h3 {
   padding: 20px;
 }
 
-.section-intro-compact {
-  padding-bottom: 4px;
+.project-contributions {
+  margin: 6px 0 0;
+  padding: 0 12px;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  background: #fafafa;
+}
+
+.project-contributions summary {
+  padding-block: 10px;
+  color: #1772d0;
+  cursor: pointer;
+}
+
+.project-contributions .project {
+  grid-template-columns: minmax(0, 112px) minmax(0, 1fr);
+  gap: 12px;
+}
+
+.project-contributions .project-media,
+.project-contributions .project-content {
+  margin: 8px 0;
+}
+
+.project-contributions .project-media {
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+}
+
+.project-contributions .project-media img {
+  height: auto;
+}
+
+.project-contributions .project-content > p:last-child {
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+.project-contributions summary:hover {
+  color: #b45309;
 }
 
 .project {
@@ -219,7 +260,7 @@ h3 {
 
 .project-media {
   position: relative;
-  width: 160px;
+  width: min(160px, calc(100% - 24px));
   height: 60px;
   margin-inline: auto;
   overflow: hidden;
@@ -243,8 +284,13 @@ h3 {
   object-fit: cover;
 }
 
-.project-media-featured img {
+.project-media-featured img,
+.project-media-featured .project-video {
   object-fit: contain;
+}
+
+.project-media-featured .project-video {
+  background: #fff;
 }
 
 .project-video {
@@ -310,6 +356,13 @@ footer p {
   text-align: right;
 }
 
+@media (min-width: 601px) {
+  .project-featured > .project-media {
+    align-self: start;
+    margin-top: var(--logo-offset, 20px);
+  }
+}
+
 @media (max-width: 600px) {
   .page {
     padding-inline: 16px;
@@ -367,6 +420,11 @@ footer p {
   .project-media-featured,
   .project-media-tall {
     aspect-ratio: 16 / 9;
+  }
+
+  .project-contributions .project {
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 
   .project-content {
