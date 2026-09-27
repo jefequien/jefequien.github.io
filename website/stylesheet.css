@@ -204,12 +204,9 @@ h4 {
   padding: 20px;
 }
 
-.publication {
-  margin: 20px 20px 32px;
-}
-
 .project-contributions {
   grid-column: 1 / -1;
+  margin-left: 28px;
 }
 
 .project-contributions summary {
@@ -236,7 +233,7 @@ h4 {
 
 .project-media {
   position: relative;
-  width: 160px;
+  width: min(160px, calc(100% - 24px));
   height: 60px;
   margin-inline: auto;
   overflow: hidden;
@@ -386,8 +383,8 @@ footer p {
     aspect-ratio: 16 / 9;
   }
 
-  .publication {
-    margin: 20px 4px 28px;
+  .project-contributions {
+    margin-left: 16px;
   }
 
   .project-contributions summary {
