@@ -17,5 +17,11 @@
   },
   "engines": {
     "node": ">=24 <25"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "proseWrap": "preserve",
+    "tabWidth": 2,
+    "useTabs": false
   }
 }
