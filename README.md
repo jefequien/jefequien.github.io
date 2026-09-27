@@ -8,7 +8,7 @@ All published source files live in `website/`: `index.html`, `stylesheet.css`, `
 
 ## Local development
 
-Use Node.js 24 and install the pinned development dependencies:
+Use Node.js 24, as specified by `engines.node` in `package.json`, and install the pinned development dependencies. CI reads the same requirement from `package.json`.
 
 ```sh
 npm install
