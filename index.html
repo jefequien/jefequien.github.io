@@ -348,7 +348,7 @@
 
       <footer>
         <p>
-          The template is stolen from
+          Template by
           <a href="https://github.com/jonbarron/jonbarron_website">Jon Barron</a>.
         </p>
       </footer>
@@ -362,24 +362,47 @@
 
         if (!video) return;
 
+        let hovered = false;
+        let focused = false;
+        let playbackRequest = 0;
+
         const showPreview = () => {
           if (reducedMotion.matches) return;
 
+          const request = ++playbackRequest;
           video
             .play()
-            .then(() => preview.classList.add("is-previewing"))
+            .then(() => {
+              if (request === playbackRequest && (hovered || focused) && !reducedMotion.matches) {
+                preview.classList.add("is-previewing");
+              }
+            })
             .catch(() => {});
         };
 
         const hidePreview = () => {
+          playbackRequest++;
           preview.classList.remove("is-previewing");
           video.pause();
         };
 
-        preview.addEventListener("pointerenter", showPreview);
-        preview.addEventListener("pointerleave", hidePreview);
-        preview.addEventListener("focus", showPreview);
-        preview.addEventListener("blur", hidePreview);
+        preview.addEventListener("pointerenter", (event) => {
+          if (event.pointerType === "touch") return;
+          hovered = true;
+          showPreview();
+        });
+        preview.addEventListener("pointerleave", () => {
+          hovered = false;
+          if (!focused) hidePreview();
+        });
+        preview.addEventListener("focus", () => {
+          focused = preview.matches(":focus-visible");
+          if (focused) showPreview();
+        });
+        preview.addEventListener("blur", () => {
+          focused = false;
+          if (!hovered) hidePreview();
+        });
         video.addEventListener("error", hidePreview);
         reducedMotion.addEventListener("change", hidePreview);
       });
