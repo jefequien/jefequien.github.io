@@ -1,42 +1,59 @@
-name: Deploy PR preview
+name: Deploy main preview
 
 on:
-  pull_request:
-    types:
-      - opened
-      - reopened
-      - synchronize
-      - closed
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 permissions:
   contents: write
-  pull-requests: write
 
 concurrency:
-  group: pages-preview-${{ github.event.number }}
+  group: pages-main-preview
   cancel-in-progress: false
 
 jobs:
   preview:
-    name: Deploy PR preview
+    name: Deploy main preview
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
     steps:
-      - name: Check out pull request
+      - name: Check out source
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
+          ref: ${{ github.sha }}
           persist-credentials: false
 
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run checks before publishing
+        run: npm run check
+
       - name: Stage the site
-        if: github.event.action != 'closed'
-        run: ./scripts/stage-site.sh "${RUNNER_TEMP}/site"
+        run: |
+          ./scripts/stage-site.sh "${RUNNER_TEMP}/site"
+          printf '%s\n' "$GITHUB_SHA" > "${RUNNER_TEMP}/site/revision.txt"
+          sed -i '/<head>/a\    <meta name="robots" content="noindex" />' "${RUNNER_TEMP}/site/index.html"
 
       - name: Deploy preview
-        uses: rossjrw/pr-preview-action@ffa7509e91a3ec8dfc2e5536c4d5c1acdf7a6de9 # v1.8.1
+        uses: JamesIves/github-pages-deploy-action@4a3abc783e1a24aeb44c16e869ad83caf6b4cc23 # v4.7.4
         with:
-          source-dir: ${{ runner.temp }}/site
-          preview-branch: gh-pages
-          umbrella-dir: pr-preview
-          wait-for-pages-deployment: true
-          qr-code: false
+          branch: gh-pages
+          folder: ${{ runner.temp }}/site
+          target-folder: preview
+          force: false
+          commit-message: Deploy main preview from ${{ github.sha }}
+
+      - name: Report preview
+        run: |
+          printf '[Main preview](https://jefequien.github.io/preview/) — commit `%s`.\n\nAllow GitHub Pages to finish publishing; confirm the SHA in [revision.txt](https://jefequien.github.io/preview/revision.txt) before reviewing.\n' "$GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"

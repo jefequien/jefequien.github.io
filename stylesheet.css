@@ -338,6 +338,18 @@ footer p {
     padding: 28px 4px 12px;
   }
 
+  .profile-links a,
+  .project-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+  }
+
+  .profile-links,
+  .project-links {
+    align-items: center;
+  }
+
   .project,
   .misc-item {
     grid-template-columns: 1fr;
