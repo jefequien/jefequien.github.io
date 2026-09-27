@@ -563,6 +563,26 @@
     <script>
       const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
+      const gsplat = document.querySelector(".project-featured");
+      const logo = gsplat.querySelector(":scope > .project-media");
+      const citation = gsplat.querySelector(":scope > .project-content");
+      const contributionsSummary = gsplat.querySelector("summary");
+
+      // Center against the citation and collapsed dropdown, even when it is open.
+      const positionLogo = () => {
+        const top = citation.getBoundingClientRect().top;
+        const bottom = contributionsSummary.getBoundingClientRect().bottom;
+        const offset =
+          (top + bottom - logo.getBoundingClientRect().height) / 2 -
+          gsplat.getBoundingClientRect().top;
+        gsplat.style.setProperty("--logo-offset", `${offset}px`);
+      };
+      const logoLayout = new ResizeObserver(positionLogo);
+      logoLayout.observe(citation);
+      logoLayout.observe(logo);
+      window.addEventListener("resize", positionLogo);
+      document.fonts.ready.then(positionLogo);
+
       document.querySelectorAll("[data-preview]").forEach((preview) => {
         const video = preview.querySelector("video");
 
