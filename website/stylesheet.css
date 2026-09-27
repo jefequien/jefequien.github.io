@@ -205,14 +205,13 @@ h4 {
 }
 
 .project-contributions {
-  grid-column: 1 / -1;
-  margin-left: 60px;
+  margin-top: 8px;
   padding-left: 16px;
   border-left: 2px solid #e5e5e5;
 }
 
 .project-contributions summary {
-  margin: 0 20px 4px;
+  margin: 0 0 4px;
   padding-block: 10px;
   color: #1772d0;
   cursor: pointer;
@@ -236,6 +235,10 @@ h4 {
   display: grid;
   grid-template-columns: 25% 75%;
   align-items: center;
+}
+
+.project-featured {
+  align-items: start;
 }
 
 .project-media,
@@ -396,7 +399,6 @@ footer p {
   }
 
   .project-contributions {
-    margin-left: 24px;
     padding-left: 12px;
   }
 
