@@ -285,7 +285,8 @@ h4 {
   object-fit: cover;
 }
 
-.project-media-featured img {
+.project-media-featured img,
+.project-media-featured .project-video {
   object-fit: contain;
 }
 

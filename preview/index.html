@@ -156,7 +156,12 @@
 
         <article class="project">
           <!-- Preview source: https://ayushtewari.com/projects/srender/videos/Teaser%20Video.mp4 at 00:08 -->
-          <figure class="project-media project-media-featured">
+          <figure
+            class="project-media project-media-featured"
+            tabindex="0"
+            data-preview
+            aria-label="Video preview for Efficient Camera-Controlled Video Generation"
+          >
             <img
               src="images/sparse-diffusion.webp"
               alt="Teaser frame showing generated keyframes, a reconstructed temple, and rendered video frames"
@@ -164,6 +169,17 @@
               height="1080"
               loading="lazy"
             />
+            <video
+              class="project-video"
+              poster="images/sparse-diffusion.webp"
+              muted
+              loop
+              playsinline
+              preload="none"
+              aria-hidden="true"
+            >
+              <source src="images/sparse-diffusion.mp4" type="video/mp4" />
+            </video>
           </figure>
           <div class="project-content">
             <h3>
