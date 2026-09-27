@@ -4,6 +4,8 @@ Source for [jefequien.github.io](https://jefequien.github.io/), a static academi
 
 The deployed website is plain HTML and CSS. Development dependencies provide repeatable formatting and validation; there is no application build step.
 
+All published source files live in `website/`: `index.html`, `stylesheet.css`, `images/`, and `data/`. The repository root contains development configuration and documentation, `scripts/` contains maintenance tools, and `.github/` contains workflows. Run npm commands from the repository root.
+
 ## Local development
 
 Use Node.js 24 and install the pinned development dependencies:
@@ -15,7 +17,7 @@ npm install
 Start a local server from the repository root:
 
 ```sh
-python3 -m http.server 8000
+python3 -m http.server 8000 --directory website
 ```
 
 Then open <http://localhost:8000/>.
@@ -38,8 +40,8 @@ The quality workflow runs the same checks for pull requests and pushes to `main`
 
 ## Adding a project
 
-1. Add the project's thumbnail and optional preview video to `images/`.
-2. Copy an existing `<article class="project">` block in `index.html`.
+1. Add the project's thumbnail and optional preview video to `website/images/`.
+2. Copy an existing `<article class="project">` block in `website/index.html`.
 3. Update its heading, description, links, media paths, dimensions, and alt text.
 4. Add `data-preview`, a focusable media container, and a `<video>` only when an animated preview exists.
 5. Run `npm run format` and `npm run check`.
@@ -53,7 +55,7 @@ Paper abstracts must remain verbatim, including any link text within the abstrac
 
 - `main` is the source branch and accepts direct pushes. PRs are optional; both `main` and `gh-pages` are protected against deletion and force pushes.
 - Pushing or merging to `main` runs quality checks but does not release production.
-- Production releases are manual: GitHub Actions stages only the website files and publishes to `gh-pages` after visual approval and passing checks.
+- Production releases are manual: GitHub Actions stages the contents of `website/` and publishes to the root of `gh-pages` after visual approval and passing checks. Public URLs do not include `website/`.
 - Each push to `main` updates [the main preview](https://jefequien.github.io/preview/) after checks pass. There are no per-PR previews.
 - The preview's [revision.txt](https://jefequien.github.io/preview/revision.txt) identifies its exact source commit. If checks fail, the previous preview remains published.
 - Production deploys preserve the preview directory and rebase instead of force-pushing deployment history.

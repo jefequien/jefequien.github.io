@@ -6,7 +6,7 @@
   "scripts": {
     "format": "prettier --write . --ignore-unknown",
     "format:check": "prettier --check . --ignore-unknown",
-    "validate:html": "html-validate index.html",
+    "validate:html": "html-validate website/index.html",
     "validate:links": "node scripts/check-local-links.mjs",
     "check": "npm run format:check && npm run validate:html && npm run validate:links"
   },

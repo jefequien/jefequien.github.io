@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from "node:fs";
 
-const html = readFileSync("index.html", "utf8");
+const website = new URL("../website/", import.meta.url);
+const html = readFileSync(new URL("index.html", website), "utf8");
 const localReferences = [...html.matchAll(/(?:href|src)=["']([^"']+)["']/g)]
   .map((match) => match[1])
   .filter((reference) => {
@@ -13,7 +14,7 @@ const localReferences = [...html.matchAll(/(?:href|src)=["']([^"']+)["']/g)]
   });
 
 const missingReferences = [...new Set(localReferences)].filter(
-  (reference) => !existsSync(reference),
+  (reference) => !existsSync(new URL(reference, website)),
 );
 
 if (missingReferences.length > 0) {
