@@ -206,14 +206,26 @@ h4 {
 
 .project-contributions {
   grid-column: 1 / -1;
-  margin-left: 28px;
+  margin-left: 60px;
+  padding-left: 16px;
+  border-left: 2px solid #e5e5e5;
 }
 
 .project-contributions summary {
-  margin: 0 20px 12px;
+  margin: 0 20px 4px;
   padding-block: 10px;
   color: #1772d0;
   cursor: pointer;
+}
+
+.project-contributions .project-media,
+.project-contributions .project-content {
+  margin-block: 8px;
+}
+
+.project-contributions .project-content > p:last-child {
+  margin-top: 6px;
+  margin-bottom: 0;
 }
 
 .project-contributions summary:hover {
@@ -384,7 +396,8 @@ footer p {
   }
 
   .project-contributions {
-    margin-left: 16px;
+    margin-left: 24px;
+    padding-left: 12px;
   }
 
   .project-contributions summary {
