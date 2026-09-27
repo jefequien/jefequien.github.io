@@ -14,10 +14,10 @@
 \setlength{\emergencystretch}{1em}
 \hyphenpenalty=2000
 \setlength{\parskip}{3pt}
-\setlist[itemize]{leftmargin=13pt,itemsep=2pt,topsep=3pt,parsep=0pt}
-\setlist[itemize,2]{label=\textendash,leftmargin=12pt,itemsep=1pt,topsep=1pt}
+\setlist[itemize]{leftmargin=13pt,itemsep=3pt,topsep=4pt,parsep=0pt}
+\setlist[itemize,2]{label=\textendash,leftmargin=12pt,itemsep=2pt,topsep=2pt}
 \titleformat{\section}{\Large\scshape\color{accent}}{}{0pt}{}[\vspace{-4pt}\color{accent}\titlerule]
-\titlespacing*{\section}{0pt}{9pt}{5pt}
+\titlespacing*{\section}{0pt}{10pt}{6pt}
 \pagestyle{fancy}
 \fancyhf{}
 \fancyfoot[L]{\footnotesize\color{muted}Jeffrey Hu}
@@ -26,6 +26,7 @@
 \renewcommand{\footrulewidth}{0pt}
 \setlength{\footskip}{22pt}
 \newcommand{\entry}[4]{%
+  \addvspace{2pt}%
   \textbf{#1}\hfill #2\\
   \textit{#3}\hfill\textcolor{muted}{#4}\par
 }
@@ -44,7 +45,6 @@ hujh14@gmail.com\enspace\textcolor{muted}{/}\enspace jefequien.github.io
 \entry{University of Cambridge}{2025--present}{PhD student}{Cambridge, UK}
 Supervisor: Professor Ayush Tewari.
 
-\vspace{3pt}
 \entry{Massachusetts Institute of Technology}{2014--2019}
 {Master of Science; Bachelor of Science}{Cambridge, MA}
 Supervisor: Professor Antonio Torralba.
