@@ -87,7 +87,12 @@
 
         <article class="project">
           <!-- Preview source: https://www-sop.inria.fr/reves/Basilic/2026/LHLBD26/Intrinsic3DGS.png -->
-          <figure class="project-media project-media-featured">
+          <figure
+            class="project-media project-media-featured"
+            tabindex="0"
+            data-preview
+            aria-label="Video preview for Intrinsic Decomposition and Editing of 3D Gaussian Splats"
+          >
             <img
               src="images/intrinsic.webp"
               alt="Edited indoor scene from Intrinsic Decomposition and Editing of 3D Gaussian Splats"
@@ -95,6 +100,18 @@
               height="450"
               loading="lazy"
             />
+            <!-- Video source: https://repo-sam.inria.fr/nerphys/intr_decomp_3dgs/content/edit_teaser.mp4 -->
+            <video
+              class="project-video"
+              poster="images/intrinsic.webp"
+              muted
+              loop
+              playsinline
+              preload="none"
+              aria-hidden="true"
+            >
+              <source src="images/intrinsic.mp4" type="video/mp4" />
+            </video>
           </figure>
           <div class="project-content">
             <h3>
@@ -202,7 +219,12 @@
 
         <article class="project">
           <!-- Preview source: https://repo-sam.inria.fr/nerphys/editable-gaussian-reflections/content/editing_results.png -->
-          <figure class="project-media project-media-featured">
+          <figure
+            class="project-media project-media-featured"
+            tabindex="0"
+            data-preview
+            aria-label="Video preview for Editable Physically-based Reflections in Raytraced Gaussian Radiance Fields"
+          >
             <img
               src="images/reflections.webp"
               alt="Examples of edited reflectance, orientation, and roughness in a reconstructed kitchen scene"
@@ -210,6 +232,18 @@
               height="382"
               loading="lazy"
             />
+            <!-- Video source: https://repo-sam.inria.fr/nerphys/editable-gaussian-reflections/content/teaser.mp4 -->
+            <video
+              class="project-video"
+              poster="images/reflections.webp"
+              muted
+              loop
+              playsinline
+              preload="none"
+              aria-hidden="true"
+            >
+              <source src="images/reflections.mp4" type="video/mp4" />
+            </video>
           </figure>
           <div class="project-content">
             <h3>
