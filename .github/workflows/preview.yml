@@ -45,7 +45,19 @@ jobs:
           printf '%s\n' "$GITHUB_SHA" > "${RUNNER_TEMP}/site/revision.txt"
           sed -i '/<head>/a\    <meta name="robots" content="noindex" />' "${RUNNER_TEMP}/site/index.html"
 
+      - name: Check that this preview is still current
+        id: freshness
+        run: |
+          latest_sha="$(git ls-remote --exit-code origin refs/heads/main | cut -f1)"
+          if [[ "$latest_sha" == "$GITHUB_SHA" ]]; then
+            echo "current=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "current=false" >> "$GITHUB_OUTPUT"
+            echo "Skipped an outdated preview; main has advanced." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
       - name: Deploy preview
+        if: steps.freshness.outputs.current == 'true'
         uses: JamesIves/github-pages-deploy-action@d92aa235d04922e8f08b40ce78cc5442fcfbfa2f # v4.8.0
         with:
           branch: gh-pages
@@ -55,5 +67,6 @@ jobs:
           commit-message: Deploy main preview from ${{ github.sha }}
 
       - name: Report preview
+        if: steps.freshness.outputs.current == 'true'
         run: |
           printf '[Main preview](https://jefequien.github.io/preview/) — commit `%s`.\n\nAllow GitHub Pages to finish publishing; confirm the SHA in [revision.txt](https://jefequien.github.io/preview/revision.txt) before reviewing.\n' "$GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"

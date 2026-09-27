@@ -8,7 +8,8 @@
     "format:check": "prettier --check . --ignore-unknown",
     "validate:html": "html-validate website/index.html",
     "validate:links": "node scripts/check-local-links.mjs",
-    "check": "npm run format:check && npm run validate:html && npm run validate:links"
+    "test": "node --test scripts/*.test.mjs",
+    "check": "npm run format:check && npm run validate:html && npm run validate:links && npm test"
   },
   "devDependencies": {
     "html-validate": "11.6.0",

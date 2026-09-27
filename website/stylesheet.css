@@ -288,7 +288,7 @@ h3 {
 }
 
 .colored-box {
-  width: 160px;
+  width: min(160px, calc(100% - 40px));
   padding: 20px;
   color: #000;
   text-align: center;
@@ -378,7 +378,7 @@ footer p {
   }
 
   .colored-box {
-    width: 100%;
+    width: calc(100% - 8px);
   }
 
   footer {
