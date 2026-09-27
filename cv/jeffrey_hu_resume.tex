@@ -9,7 +9,7 @@
 \usepackage{titlesec}
 \usepackage{fancyhdr}
 \usepackage{hyperref}
-\hypersetup{colorlinks=true,urlcolor=accent,pdftitle={Jeffrey Hu — Curriculum Vitae},pdfauthor={Jeffrey Hu}}
+\hypersetup{hidelinks,pdftitle={Jeffrey Hu — Curriculum Vitae},pdfauthor={Jeffrey Hu}}
 \setlength{\parindent}{0pt}
 \setlength{\emergencystretch}{1em}
 \hyphenpenalty=2000
@@ -29,32 +29,32 @@
   \textbf{#1}\hfill #2\\
   \textit{#3}\hfill\textcolor{muted}{#4}\par
 }
-\newcommand{\publication}[4]{%
-  {\raggedright\hyphenpenalty=10000\href{#1}{\textbf{#2}}\par}
-  #3\\
-  \textit{#4}\par\vspace{4pt}
+\newcommand{\publication}[3]{%
+  {\raggedright\hyphenpenalty=10000\textbf{#1}\par}
+  #2\\
+  \textit{#3}\par\vspace{4pt}
 }
 \begin{document}
 
 {\fontsize{27}{30}\selectfont\textbf{Jeffrey Hu}}\hfill
-\href{https://jefequien.github.io/}{jefequien.github.io}\\[3pt]
-\href{mailto:hujh14@gmail.com}{hujh14@gmail.com}\enspace\textcolor{muted}{/}\enspace
-\href{https://github.com/jefequien}{github.com/jefequien}\enspace\textcolor{muted}{/}\enspace
-\href{https://www.linkedin.com/in/jeffrey-h-hu/}{linkedin.com/in/jeffrey-h-hu}
+jefequien.github.io\\[3pt]
+hujh14@gmail.com
 
+% Education dates: https://uk.linkedin.com/in/jeffrey-h-hu
 \section{Education}
-\entry{University of Cambridge}{Current}{PhD student}{Cambridge, UK}
+\entry{University of Cambridge}{2025--present}{PhD student (expected 2028)}{Cambridge, UK}
 Supervisor: Professor Ayush Tewari. Research in 3D computer vision, computer graphics,
 differentiable rendering, and generative models of the real world.
 
 \vspace{3pt}
-\entry{Massachusetts Institute of Technology}{2018, 2019}
+\entry{Massachusetts Institute of Technology}{2014--2019}
 {Computer Science and Engineering}{Cambridge, MA}
-Master of Science, 2019; Bachelor of Science, 2018. GPA: 4.7/5.0.\\
+Master of Science, 2017--2019; Bachelor of Science, 2014--2018.\\
 Research advisor: Professor Antonio Torralba.
 
-\section{Experience}
-\entry{Inria — GraphDeco}{Previously}{Research Engineer}{}
+\section{Research \& open source}
+% Inria dates: https://prod-rex-app.inria.fr/report/2025/graphdeco/index.html
+\entry{Inria — GraphDeco}{Feb 2025--Sep 2025}{Research Engineer}{Nice, France}
 \begin{itemize}
   \item Worked with Professor George Drettakis on 3D Gaussian splatting and differentiable
   rendering, including intrinsic decomposition, editable reflections, and reconstruction
@@ -66,20 +66,51 @@ Research advisor: Professor Antonio Torralba.
   \item Contributed to an open-source Gaussian splatting library for 3D reconstruction and
   novel-view synthesis, including:
   \begin{itemize}
-    \item \href{https://github.com/nerfstudio-project/gsplat/pull/238}{3DGS-MCMC}
+    \item 3DGS-MCMC
     for improved densification and
-    \href{https://github.com/nerfstudio-project/gsplat/pull/291}{bilateral grids}
+    bilateral grids
     for handling exposure changes.
-    \item \href{https://github.com/nerfstudio-project/gsplat/pull/398}{Fisheye camera support}
-    and \href{https://github.com/nerfstudio-project/gsplat/pull/273}{2.5D Gaussian splatting}
+    \item Fisheye camera support
+    and 2.5D Gaussian splatting
     for surface reconstruction.
     \item Combined MCMC, Self-Organizing Gaussian Splats, and spherical-harmonics
     k-means clustering for
-    \href{https://github.com/nerfstudio-project/gsplat/pull/309}{Gaussian splat compression}.
-    \item \href{https://github.com/nerfstudio-project/gsplat/pull/469}{Camera defocus blur modeling}.
+    Gaussian splat compression.
+    \item Camera defocus blur modeling.
   \end{itemize}
 \end{itemize}
 
+\section{Publications}
+\publication
+{Intrinsic Decomposition and Editing of 3D Gaussian Splats}
+{A. Lanvin, \textbf{J. Hu}, S. Lucas, A. Bousseau, and G. Drettakis}
+{I3D / Proceedings of the ACM on Computer Graphics and Interactive Techniques, 2026.}
+
+\publication
+{Adaptive Spatio-Temporal 3D Gaussian Splatting for Scenes with Oscillatory Motion}
+{P. Tzathas, \textbf{J. Hu}, A. Meuleman, G. Cordonnier, and G. Drettakis}
+{Eurographics / Computer Graphics Forum, 2026.}
+
+\publication
+{Efficient Camera-Controlled Video Generation of Static Scenes via Sparse Diffusion and 3D Rendering}
+{J. Chen, \textbf{J. Hu}, J. Lasenby, and A. Tewari}
+{arXiv preprint, 2026.}
+
+\publication
+{Editable Physically-based Reflections in Raytraced Gaussian Radiance Fields}
+{Y. Poirier-Ginter, \textbf{J. Hu}, J.-F. Lalonde, and G. Drettakis}
+{SIGGRAPH Asia, 2025.}
+
+\publication
+{gsplat: An Open-Source Library for Gaussian Splatting}
+{V. Ye, R. Li, J. Kerr, M. Turkulainen, B. Yi, Z. Pan, O. Seiskari, J. Ye,
+\textbf{J. Hu}, M. Tancik, and A. Kanazawa}
+{Journal of Machine Learning Research, 2025.}
+
+\newpage
+{\large\textbf{Jeffrey Hu}}\hfill\textcolor{muted}{Curriculum vitae}
+
+\section{Industry \& earlier experience}
 \entry{Parallel Systems}{Mar 2022--Apr 2024}
 {Senior Software Engineer, Perception}{Los Angeles, CA}
 \begin{itemize}
@@ -108,52 +139,9 @@ Research advisor: Professor Antonio Torralba.
   and upload infrastructure.
 \end{itemize}
 
-\newpage
-{\large\textbf{Jeffrey Hu}}\hfill\textcolor{muted}{Curriculum vitae}
-
-\section{Experience, continued}
 \entry{TuSimple}{Jan 2020--Mar 2022}{Research Engineer II}{San Diego, CA}
-\begin{itemize}
-  \item Developed a method for correcting camera drift in visual odometry by training
-  a network to regress the difference between the current image and a rendered synthetic map view.
-  \item Wrote an onboard C++ library to efficiently manage 6DoF transformation matrices
-  between coordinate frames of a scene graph in an asynchronous system.
-\end{itemize}
 
 \entry{MIT Computer Vision Group}{Sep 2017--Sep 2019}{Research Assistant}{Cambridge, MA}
-\begin{itemize}
-  \item Investigated scalable semi-automatic methods for labeling large segmentation datasets.
-  \item Built a browser-based annotation tool for rapid segmentation editing.
-\end{itemize}
-
-\entry{Amazon Prime Air}{Jun 2016--Aug 2016}{Software Engineer Intern}{Seattle, WA}
-
-\section{Publications}
-\publication{https://arxiv.org/abs/2606.31637}
-{Intrinsic Decomposition and Editing of 3D Gaussian Splats}
-{A. Lanvin, \textbf{J. Hu}, S. Lucas, A. Bousseau, and G. Drettakis}
-{I3D / Proceedings of the ACM on Computer Graphics and Interactive Techniques, 2026.}
-
-\publication{https://repo-sam.inria.fr/nerphys/adaptive-spatio-temporal/AdaptiveSpatioTemporal_authors.pdf}
-{Adaptive Spatio-Temporal 3D Gaussian Splatting for Scenes with Oscillatory Motion}
-{P. Tzathas, \textbf{J. Hu}, A. Meuleman, G. Cordonnier, and G. Drettakis}
-{Eurographics / Computer Graphics Forum, 2026.}
-
-\publication{https://arxiv.org/abs/2601.09697}
-{Efficient Camera-Controlled Video Generation of Static Scenes via Sparse Diffusion and 3D Rendering}
-{J. Chen, \textbf{J. Hu}, J. Lasenby, and A. Tewari}
-{arXiv preprint, 2026.}
-
-\publication{https://arxiv.org/abs/2606.30861}
-{Editable Physically-based Reflections in Raytraced Gaussian Radiance Fields}
-{Y. Poirier-Ginter, \textbf{J. Hu}, J.-F. Lalonde, and G. Drettakis}
-{SIGGRAPH Asia, 2025.}
-
-\publication{https://arxiv.org/abs/2409.06765}
-{gsplat: An Open-Source Library for Gaussian Splatting}
-{V. Ye, R. Li, J. Kerr, M. Turkulainen, B. Yi, Z. Pan, O. Seiskari, J. Ye,
-\textbf{J. Hu}, M. Tancik, and A. Kanazawa}
-{Journal of Machine Learning Research, 2025.}
 
 \section{Leadership \& interests}
 \entry{MIT Varsity Squash}{Sep 2014--Jun 2018}{Captain}{Cambridge, MA}
