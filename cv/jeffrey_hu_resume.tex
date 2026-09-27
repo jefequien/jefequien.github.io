@@ -2,10 +2,11 @@
 \usepackage[margin=17mm,top=16mm,bottom=18mm]{geometry}
 \usepackage{fontspec}
 \setmainfont{texgyrepagella}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
+\setsansfont{texgyreheros}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
 \usepackage{enumitem}
 \usepackage{xcolor}
-\definecolor{accent}{HTML}{235A73}
-\definecolor{muted}{HTML}{555555}
+\definecolor{accent}{HTML}{203E4A}
+\definecolor{muted}{HTML}{606060}
 \usepackage{titlesec}
 \usepackage{fancyhdr}
 \usepackage{hyperref}
@@ -16,7 +17,7 @@
 \setlength{\parskip}{3pt}
 \setlist[itemize]{leftmargin=13pt,itemsep=3pt,topsep=4pt,parsep=0pt}
 \setlist[itemize,2]{label=\textendash,leftmargin=12pt,itemsep=2pt,topsep=2pt}
-\titleformat{\section}{\Large\scshape\color{accent}}{}{0pt}{}[\vspace{-4pt}\color{accent}\titlerule]
+\titleformat{\section}{\Large\sffamily\bfseries\color{accent}}{}{0pt}{}[\vspace{-4pt}\color{accent}\titlerule]
 \titlespacing*{\section}{0pt}{10pt}{6pt}
 \pagestyle{fancy}
 \fancyhf{}
@@ -27,13 +28,13 @@
 \setlength{\footskip}{22pt}
 \newcommand{\entry}[4]{%
   \addvspace{2pt}%
-  \textbf{#1}\hfill #2\\
-  \textit{#3}\hfill\textcolor{muted}{#4}\par
+  \textbf{#1}\hfill\textcolor{muted}{\small #2}\\
+  \textit{#3}\hfill\textcolor{muted}{\small #4}\par
 }
 \newcommand{\publication}[3]{%
   {\raggedright\hyphenpenalty=10000\textbf{#1}\par}
-  #2\\
-  \textit{#3}\par\vspace{4pt}
+  {\small\color{muted}#2\\
+  \textit{#3}\par}\vspace{9pt}
 }
 \begin{document}
 
@@ -48,60 +49,6 @@ Supervisor: Professor Ayush Tewari.
 \entry{Massachusetts Institute of Technology}{2014--2019}
 {Master of Science; Bachelor of Science}{Cambridge, MA}
 Supervisor: Professor Antonio Torralba.
-
-\section{Research}
-% Inria dates: https://prod-rex-app.inria.fr/report/2025/graphdeco/index.html
-\entry{Inria — GraphDeco}{Feb 2025--Sep 2025}{Research Engineer}{Nice, France}
-\begin{itemize}
-  \item Worked with Professor George Drettakis on differentiable rendering with 3D Gaussian splats.
-  \item Developed methods for intrinsic decomposition and editable physically-based reflections.
-\end{itemize}
-
-\entry{gsplat}{Apr 2024--Feb 2025}{Contributor}{}
-\begin{itemize}
-  \item Contributed to an open-source Gaussian splatting library for 3D reconstruction and
-  novel-view synthesis, including:
-  \begin{itemize}
-    \item Implemented 3DGS-MCMC
-    for improved densification and
-    bilateral grids
-    for handling exposure changes.
-    \item Combined Self-Organizing Gaussian Splats and spherical-harmonics k-means clustering
-    for Gaussian splat compression.
-    \item Added fisheye camera support, camera defocus blur modeling, and 2.5D Gaussian splatting
-    for surface reconstruction.
-  \end{itemize}
-\end{itemize}
-
-\section{Publications}
-\publication
-{Efficient Camera-Controlled Video Generation of Static Scenes via Sparse Diffusion and 3D Rendering}
-{J. Chen, \textbf{J. Hu}, J. Lasenby, and A. Tewari}
-{arXiv preprint, 2026.}
-
-\publication
-{Intrinsic Decomposition and Editing of 3D Gaussian Splats}
-{A. Lanvin, \textbf{J. Hu}, S. Lucas, A. Bousseau, and G. Drettakis}
-{I3D / Proceedings of the ACM on Computer Graphics and Interactive Techniques, 2026.}
-
-\publication
-{Adaptive Spatio-Temporal 3D Gaussian Splatting for Scenes with Oscillatory Motion}
-{P. Tzathas, \textbf{J. Hu}, A. Meuleman, G. Cordonnier, and G. Drettakis}
-{Eurographics / Computer Graphics Forum, 2026.}
-
-\publication
-{Editable Physically-based Reflections in Raytraced Gaussian Radiance Fields}
-{Y. Poirier-Ginter, \textbf{J. Hu}, J.-F. Lalonde, and G. Drettakis}
-{SIGGRAPH Asia, 2025.}
-
-\publication
-{gsplat: An Open-Source Library for Gaussian Splatting}
-{V. Ye, R. Li, J. Kerr, M. Turkulainen, B. Yi, Z. Pan, O. Seiskari, J. Ye,
-\textbf{J. Hu}, M. Tancik, and A. Kanazawa}
-{Journal of Machine Learning Research, 2025.}
-
-\newpage
-{\large\textbf{Jeffrey Hu}}
 
 \section{Work experience}
 \entry{Parallel Systems}{Mar 2022--Apr 2024}
@@ -135,6 +82,54 @@ Supervisor: Professor Antonio Torralba.
 \entry{TuSimple}{Jan 2020--Mar 2022}{Research Engineer II}{San Diego, CA}
 
 \entry{Amazon Prime Air}{Jun 2016--Aug 2016}{Software Engineer Intern}{Seattle, WA}
+
+\newpage
+{\large\textbf{Jeffrey Hu}}
+
+\section{Research}
+% Inria dates: https://prod-rex-app.inria.fr/report/2025/graphdeco/index.html
+\entry{Inria — GraphDeco}{Feb 2025--Sep 2025}{Research Engineer}{Nice, France}
+\begin{itemize}
+  \item Worked with Professor George Drettakis on differentiable rendering with 3D Gaussian splats.
+  \item Developed methods for intrinsic decomposition and editable physically-based reflections.
+\end{itemize}
+
+\entry{gsplat}{Apr 2024--Feb 2025}{Contributor}{}
+Contributed to an open-source Gaussian splatting library for 3D reconstruction and novel-view synthesis.
+\begin{itemize}
+  \item Implemented 3DGS-MCMC for improved densification and bilateral grids for handling exposure changes.
+  \item Combined Self-Organizing Gaussian Splats and spherical-harmonics k-means clustering
+  for Gaussian splat compression.
+  \item Added fisheye camera support, camera defocus blur modeling, and 2.5D Gaussian splatting
+  for surface reconstruction.
+\end{itemize}
+
+\section{Publications}
+\publication
+{Efficient Camera-Controlled Video Generation of Static Scenes via Sparse Diffusion and 3D Rendering}
+{J. Chen, \textbf{J. Hu}, J. Lasenby, and A. Tewari}
+{arXiv preprint, 2026.}
+
+\publication
+{Intrinsic Decomposition and Editing of 3D Gaussian Splats}
+{A. Lanvin, \textbf{J. Hu}, S. Lucas, A. Bousseau, and G. Drettakis}
+{I3D / Proceedings of the ACM on Computer Graphics and Interactive Techniques, 2026.}
+
+\publication
+{Adaptive Spatio-Temporal 3D Gaussian Splatting for Scenes with Oscillatory Motion}
+{P. Tzathas, \textbf{J. Hu}, A. Meuleman, G. Cordonnier, and G. Drettakis}
+{Eurographics / Computer Graphics Forum, 2026.}
+
+\publication
+{Editable Physically-based Reflections in Raytraced Gaussian Radiance Fields}
+{Y. Poirier-Ginter, \textbf{J. Hu}, J.-F. Lalonde, and G. Drettakis}
+{SIGGRAPH Asia, 2025.}
+
+\publication
+{gsplat: An Open-Source Library for Gaussian Splatting}
+{V. Ye, R. Li, J. Kerr, M. Turkulainen, B. Yi, Z. Pan, O. Seiskari, J. Ye,
+\textbf{J. Hu}, M. Tancik, and A. Kanazawa}
+{Journal of Machine Learning Research, 2025.}
 
 \section{Miscellaneous}
 \textbf{MIT Varsity squash} — Captain\par
