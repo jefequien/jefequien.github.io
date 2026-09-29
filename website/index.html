@@ -110,6 +110,7 @@
               aria-hidden="true"
             >
               <source src="images/sparse-diffusion.mp4" type="video/mp4" />
+              <source src="images/sparse-diffusion.webm" type="video/webm" />
             </video>
           </figure>
           <div class="project-content">
@@ -158,6 +159,7 @@
               aria-hidden="true"
             >
               <source src="images/intrinsic.mp4" type="video/mp4" />
+              <source src="images/intrinsic.webm" type="video/webm" />
             </video>
           </figure>
           <div class="project-content">
@@ -243,6 +245,7 @@
               aria-hidden="true"
             >
               <source src="images/reflections.mp4" type="video/mp4" />
+              <source src="images/reflections.webm" type="video/webm" />
             </video>
           </figure>
           <div class="project-content">
@@ -315,6 +318,7 @@
                     aria-hidden="true"
                   >
                     <source src="images/mcmc.mp4" type="video/mp4" />
+                    <source src="images/mcmc.webm" type="video/webm" />
                   </video>
                 </figure>
                 <div class="project-content">
@@ -357,6 +361,7 @@
                     aria-hidden="true"
                   >
                     <source src="images/bilateral.mp4" type="video/mp4" />
+                    <source src="images/bilateral.webm" type="video/webm" />
                   </video>
                 </figure>
                 <div class="project-content">
@@ -436,6 +441,7 @@
                     aria-hidden="true"
                   >
                     <source src="images/fisheye.mp4" type="video/mp4" />
+                    <source src="images/fisheye.webm" type="video/webm" />
                   </video>
                 </figure>
                 <div class="project-content">
@@ -474,6 +480,7 @@
                     aria-hidden="true"
                   >
                     <source src="images/normal.mp4" type="video/mp4" />
+                    <source src="images/normal.webm" type="video/webm" />
                   </video>
                 </figure>
                 <div class="project-content">
@@ -515,6 +522,7 @@
                     aria-hidden="true"
                   >
                     <source src="images/deblur.mp4" type="video/mp4" />
+                    <source src="images/deblur.webm" type="video/webm" />
                   </video>
                 </figure>
                 <div class="project-content">
@@ -583,63 +591,121 @@
       window.addEventListener("resize", positionLogo);
       document.fonts.ready.then(positionLogo);
 
+      let activePreview = null;
+      const stopActivePreview = () => activePreview?.stop();
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) stopActivePreview();
+      });
+      window.addEventListener("pagehide", stopActivePreview);
+      reducedMotion.addEventListener("change", stopActivePreview);
+
       document.querySelectorAll("[data-preview]").forEach((preview) => {
         const video = preview.querySelector("video");
+        const sources = Array.from(video?.querySelectorAll("source") || []);
+        if (!sources.length) return;
 
-        if (!video) return;
-
+        const url = sources[0].getAttribute("src");
+        // Attach media only on intent; pause alone can retain downloads and decoders.
+        sources.forEach((source) => source.remove());
+        video.load();
+        video.muted = true;
         const contributions = preview.closest("details");
-
+        const label = preview.getAttribute("aria-label") || preview.querySelector("img").alt;
+        preview.setAttribute("role", "button");
+        preview.setAttribute("aria-label", `${label}. Play or pause preview`);
+        preview.setAttribute("aria-pressed", "false");
         let hovered = false;
         let focused = false;
-        let playbackRequest = 0;
+        let timer;
+        let timeout;
+        let request = 0;
 
-        const showPreview = () => {
-          if (reducedMotion.matches || (contributions && !contributions.open)) return;
-
-          const request = ++playbackRequest;
+        const stop = () => {
+          request++;
+          clearTimeout(timer);
+          clearTimeout(timeout);
+          preview.classList.remove("is-previewing");
+          preview.setAttribute("aria-pressed", "false");
+          video.pause();
+          if (sources[0].parentNode === video) {
+            sources.forEach((source) => source.remove());
+            video.load();
+          }
+          if (activePreview === controller) activePreview = null;
+        };
+        const controller = { stop };
+        const start = () => {
+          clearTimeout(timer);
+          if (reducedMotion.matches || document.hidden || (contributions && !contributions.open))
+            return;
+          if (activePreview === controller) return;
+          stopActivePreview();
+          activePreview = controller;
+          const current = ++request;
+          video.append(...sources);
+          video.load();
+          // A stalled connection must not hold media resources indefinitely.
+          timeout = setTimeout(stop, 15000);
           video
             .play()
             .then(() => {
-              if (request === playbackRequest && (hovered || focused) && !reducedMotion.matches) {
-                preview.classList.add("is-previewing");
-              }
+              if (current !== request) return;
+              clearTimeout(timeout);
+              preview.classList.add("is-previewing");
+              preview.setAttribute("aria-pressed", "true");
             })
-            .catch(() => {});
+            .catch((error) => {
+              if (current !== request) return;
+              stop();
+              if (error.name !== "AbortError")
+                console.warn(`Preview unavailable: ${url}`, error.name);
+            });
         };
-
-        const hidePreview = () => {
-          playbackRequest++;
-          preview.classList.remove("is-previewing");
-          video.pause();
-        };
-
         preview.addEventListener("pointerenter", (event) => {
           if (event.pointerType === "touch") return;
           hovered = true;
-          showPreview();
+          // Avoid downloading clips while the pointer merely crosses the page.
+          timer = setTimeout(start, 150);
         });
-        preview.addEventListener("pointerleave", () => {
+        preview.addEventListener("pointerleave", (event) => {
+          if (event.pointerType === "touch") return;
           hovered = false;
-          if (!focused) hidePreview();
+          if (!focused) stop();
         });
         preview.addEventListener("focus", () => {
           focused = preview.matches(":focus-visible");
-          if (focused) showPreview();
+          if (focused) start();
         });
         preview.addEventListener("blur", () => {
           focused = false;
-          if (!hovered) hidePreview();
+          if (!hovered) stop();
+        });
+        preview.addEventListener("click", () => {
+          if (activePreview === controller) stop();
+          else start();
+        });
+        preview.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            if (activePreview === controller) stop();
+            else start();
+          }
+          if (event.key === "Escape") stop();
         });
         contributions?.addEventListener("toggle", () => {
           if (!contributions.open) {
             hovered = false;
             focused = false;
-            hidePreview();
+            stop();
           }
         });
-        video.addEventListener("error", hidePreview);
-        reducedMotion.addEventListener("change", hidePreview);
+        video.addEventListener("error", stop);
+        if ("IntersectionObserver" in window) {
+          const visibility = new IntersectionObserver(([entry]) => {
+            if (!entry.isIntersecting) stop();
+          });
+          visibility.observe(preview);
+        }
       });
     </script>
   </body>

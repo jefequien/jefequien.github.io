@@ -65,6 +65,10 @@ This generates `website/data/jeffrey_hu_resume.pdf`, keeping the site's existing
 
 Static thumbnails must communicate the project without requiring hover, video, or JavaScript.
 
+Preview videos use silent H.264 Constrained Baseline, level 3.0, 8-bit `yuv420p` MP4, 24 fps, and `+faststart` (metadata before media data). A silent VP9 WebM source follows MP4 as a fallback for browsers without an H.264 decoder; the browser selects one format. Keep the display aspect ratio and full clip; target at most 480 pixels wide for these small previews. Encode from the best available source with libx264, `-preset slow`, and CRF 26–28, then inspect the result at its displayed size. Avoid repeatedly re-encoding already compressed assets.
+
+Videos have `preload="none"`; JavaScript detaches their sources until a 150 ms hover, keyboard focus, or explicit tap/click. Only one preview may be active. Leaving it, scrolling it out of view, closing Contributions, hiding the page, or enabling reduced motion pauses and unloads it. Re-entry restarts the clip; browsers may reuse their HTTP cache. Touch previews have a play/pause affordance, and Enter/Space toggle playback. Reduced motion keeps static posters. Playback failures retain the poster and allow a fresh attempt on the next interaction.
+
 Paper abstracts must remain verbatim, including any link text within the abstract. Do not shorten, paraphrase, or edit their wording unless explicitly requested. Repository editing guidelines are recorded in `AGENTS.md`.
 
 ## Deployment
