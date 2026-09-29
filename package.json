@@ -10,10 +10,12 @@
     "validate:links": "node scripts/check-local-links.mjs",
     "test": "node --test scripts/*.test.mjs",
     "check": "npm run build:cv && npm run format:check && npm run validate:html && npm run validate:links && npm test",
-    "build:cv": "bash scripts/build-cv.sh"
+    "build:cv": "bash scripts/build-cv.sh",
+    "test:browser": "node --test scripts/browser.test.mjs"
   },
   "devDependencies": {
     "html-validate": "11.6.0",
+    "playwright": "1.63.0",
     "prettier": "3.9.6"
   },
   "engines": {

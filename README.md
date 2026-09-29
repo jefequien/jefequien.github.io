@@ -4,7 +4,7 @@ Source for [jefequien.github.io](https://jefequien.github.io/), a static academi
 
 The deployed website is plain HTML and CSS. Development dependencies provide repeatable formatting and validation. Tectonic builds the CV from LaTeX; the website itself has no application build step.
 
-Published website files live in `website/`: `index.html`, `stylesheet.css`, `images/`, and `data/`. The CV source lives in `cv/`; its generated PDF is written to `website/data/` and is not committed. The repository root contains development configuration and documentation, `scripts/` contains maintenance tools, and `.github/` contains workflows. Run npm commands from the repository root.
+Published website files live in `website/`: `index.html`, `stylesheet.css`, `previews.js`, `images/`, and `data/`. The CV source lives in `cv/`; its generated PDF is written to `website/data/` and is not committed. The repository root contains development configuration and documentation, `scripts/` contains maintenance tools, and `.github/` contains workflows. Run npm commands from the repository root.
 
 ## Local development
 
@@ -12,6 +12,7 @@ Use Node.js 24, as specified by `engines.node` in `package.json`, and install th
 
 ```sh
 npm install
+npx playwright install --with-deps chromium firefox
 ```
 
 Install Tectonic as described under [CV](#cv), then run `npm run build:cv` to generate the PDF on a fresh checkout.
@@ -37,6 +38,8 @@ Build the CV and run formatting, HTML, and local-link checks (requires Tectonic)
 ```sh
 npm run check
 ```
+
+The checks include Chromium and Firefox regression tests, served locally by the test harness. They cover all hover videos, resource cleanup, touch and keyboard controls, reduced motion, failure recovery, responsive overflow, and contribution spacing. Run only these checks with `npm run test:browser`. Playwright is a development dependency; the published site needs no runtime packages.
 
 The Quality workflow runs these checks for pull requests. Pushes to `main` run them once inside the preview workflow, before publishing. Local-link checks verify referenced files and HTML fragment targets.
 
@@ -67,7 +70,7 @@ Static thumbnails must communicate the project without requiring hover, video, o
 
 Preview videos use silent H.264 Constrained Baseline, level 3.0, 8-bit `yuv420p` MP4, 24 fps, and `+faststart` (metadata before media data). A silent VP9 WebM source follows MP4 as a fallback for browsers without an H.264 decoder; the browser selects one format. Keep the display aspect ratio and full clip; target at most 480 pixels wide for these small previews. Encode from the best available source with libx264, `-preset slow`, and CRF 26–28, then inspect the result at its displayed size. Avoid repeatedly re-encoding already compressed assets.
 
-Videos have `preload="none"`; JavaScript detaches their sources until a 150 ms hover, keyboard focus, or explicit tap/click. Only one preview may be active. Leaving it, scrolling it out of view, closing Contributions, hiding the page, or enabling reduced motion pauses and unloads it. Re-entry restarts the clip; browsers may reuse their HTTP cache. Touch previews have a play/pause affordance, and Enter/Space toggle playback. Reduced motion keeps static posters. Playback failures retain the poster and allow a fresh attempt on the next interaction.
+Videos have `preload="none"`; JavaScript detaches their sources until a 150 ms hover, keyboard focus, or explicit tap/click. Only one preview may be active. Leaving it, scrolling it out of view, closing Contributions, hiding the page, or enabling reduced motion pauses and unloads it. Re-entry restarts the clip; browsers may reuse their HTTP cache. Touch previews have a play/pause affordance, and Enter/Space toggle playback. Reduced motion keeps static posters and removes the preview controls from keyboard navigation and accessibility semantics. Playback failures retain the poster and allow a fresh attempt on the next interaction.
 
 Paper abstracts must remain verbatim, including any link text within the abstract. Do not shorten, paraphrase, or edit their wording unless explicitly requested. Repository editing guidelines are recorded in `AGENTS.md`.
 
