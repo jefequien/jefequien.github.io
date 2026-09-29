@@ -110,6 +110,7 @@
               aria-hidden="true"
             >
               <source src="images/sparse-diffusion.mp4" type="video/mp4" />
+              <source src="images/sparse-diffusion.webm" type="video/webm" />
             </video>
           </figure>
           <div class="project-content">
@@ -158,6 +159,7 @@
               aria-hidden="true"
             >
               <source src="images/intrinsic.mp4" type="video/mp4" />
+              <source src="images/intrinsic.webm" type="video/webm" />
             </video>
           </figure>
           <div class="project-content">
@@ -243,6 +245,7 @@
               aria-hidden="true"
             >
               <source src="images/reflections.mp4" type="video/mp4" />
+              <source src="images/reflections.webm" type="video/webm" />
             </video>
           </figure>
           <div class="project-content">
@@ -315,6 +318,7 @@
                     aria-hidden="true"
                   >
                     <source src="images/mcmc.mp4" type="video/mp4" />
+                    <source src="images/mcmc.webm" type="video/webm" />
                   </video>
                 </figure>
                 <div class="project-content">
@@ -357,6 +361,7 @@
                     aria-hidden="true"
                   >
                     <source src="images/bilateral.mp4" type="video/mp4" />
+                    <source src="images/bilateral.webm" type="video/webm" />
                   </video>
                 </figure>
                 <div class="project-content">
@@ -436,6 +441,7 @@
                     aria-hidden="true"
                   >
                     <source src="images/fisheye.mp4" type="video/mp4" />
+                    <source src="images/fisheye.webm" type="video/webm" />
                   </video>
                 </figure>
                 <div class="project-content">
@@ -474,6 +480,7 @@
                     aria-hidden="true"
                   >
                     <source src="images/normal.mp4" type="video/mp4" />
+                    <source src="images/normal.webm" type="video/webm" />
                   </video>
                 </figure>
                 <div class="project-content">
@@ -515,6 +522,7 @@
                     aria-hidden="true"
                   >
                     <source src="images/deblur.mp4" type="video/mp4" />
+                    <source src="images/deblur.webm" type="video/webm" />
                   </video>
                 </figure>
                 <div class="project-content">
@@ -560,87 +568,6 @@
       </footer>
     </main>
 
-    <script>
-      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-      const gsplat = document.querySelector(".project-featured");
-      const logo = gsplat.querySelector(":scope > .project-media");
-      const citation = gsplat.querySelector(":scope > .project-content");
-      const contributionsSummary = gsplat.querySelector("summary");
-
-      // Center against the citation and collapsed dropdown, even when it is open.
-      const positionLogo = () => {
-        const top = citation.getBoundingClientRect().top;
-        const bottom = contributionsSummary.getBoundingClientRect().bottom;
-        const offset =
-          (top + bottom - logo.getBoundingClientRect().height) / 2 -
-          gsplat.getBoundingClientRect().top;
-        gsplat.style.setProperty("--logo-offset", `${offset}px`);
-      };
-      const logoLayout = new ResizeObserver(positionLogo);
-      logoLayout.observe(citation);
-      logoLayout.observe(logo);
-      window.addEventListener("resize", positionLogo);
-      document.fonts.ready.then(positionLogo);
-
-      document.querySelectorAll("[data-preview]").forEach((preview) => {
-        const video = preview.querySelector("video");
-
-        if (!video) return;
-
-        const contributions = preview.closest("details");
-
-        let hovered = false;
-        let focused = false;
-        let playbackRequest = 0;
-
-        const showPreview = () => {
-          if (reducedMotion.matches || (contributions && !contributions.open)) return;
-
-          const request = ++playbackRequest;
-          video
-            .play()
-            .then(() => {
-              if (request === playbackRequest && (hovered || focused) && !reducedMotion.matches) {
-                preview.classList.add("is-previewing");
-              }
-            })
-            .catch(() => {});
-        };
-
-        const hidePreview = () => {
-          playbackRequest++;
-          preview.classList.remove("is-previewing");
-          video.pause();
-        };
-
-        preview.addEventListener("pointerenter", (event) => {
-          if (event.pointerType === "touch") return;
-          hovered = true;
-          showPreview();
-        });
-        preview.addEventListener("pointerleave", () => {
-          hovered = false;
-          if (!focused) hidePreview();
-        });
-        preview.addEventListener("focus", () => {
-          focused = preview.matches(":focus-visible");
-          if (focused) showPreview();
-        });
-        preview.addEventListener("blur", () => {
-          focused = false;
-          if (!hovered) hidePreview();
-        });
-        contributions?.addEventListener("toggle", () => {
-          if (!contributions.open) {
-            hovered = false;
-            focused = false;
-            hidePreview();
-          }
-        });
-        video.addEventListener("error", hidePreview);
-        reducedMotion.addEventListener("change", hidePreview);
-      });
-    </script>
+    <script src="previews.js" defer></script>
   </body>
 </html>

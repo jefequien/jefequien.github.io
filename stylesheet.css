@@ -1,6 +1,7 @@
 /* latin-ext */
 @font-face {
   font-family: "Lato";
+  font-display: swap;
   font-style: italic;
   font-weight: 400;
   src:
@@ -14,6 +15,7 @@
 /* latin */
 @font-face {
   font-family: "Lato";
+  font-display: swap;
   font-style: italic;
   font-weight: 400;
   src:
@@ -27,6 +29,7 @@
 /* latin-ext */
 @font-face {
   font-family: "Lato";
+  font-display: swap;
   font-style: italic;
   font-weight: 700;
   src:
@@ -40,6 +43,7 @@
 /* latin */
 @font-face {
   font-family: "Lato";
+  font-display: swap;
   font-style: italic;
   font-weight: 700;
   src:
@@ -53,6 +57,7 @@
 /* latin-ext */
 @font-face {
   font-family: "Lato";
+  font-display: swap;
   font-style: normal;
   font-weight: 400;
   src:
@@ -66,6 +71,7 @@
 /* latin */
 @font-face {
   font-family: "Lato";
+  font-display: swap;
   font-style: normal;
   font-weight: 400;
   src:
@@ -79,6 +85,7 @@
 /* latin-ext */
 @font-face {
   font-family: "Lato";
+  font-display: swap;
   font-style: normal;
   font-weight: 700;
   src:
@@ -92,6 +99,7 @@
 /* latin */
 @font-face {
   font-family: "Lato";
+  font-display: swap;
   font-style: normal;
   font-weight: 700;
   src:
@@ -228,6 +236,29 @@ h4 {
   margin: 8px 0;
 }
 
+[data-preview][role="button"] {
+  cursor: pointer;
+}
+
+@media (hover: none) and (prefers-reduced-motion: no-preference) {
+  [data-preview][role="button"]::after {
+    content: "▶";
+    position: absolute;
+    right: 6px;
+    bottom: 6px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background: rgb(0 0 0 / 70%);
+    color: #fff;
+    font-size: 14px;
+    pointer-events: none;
+  }
+
+  [data-preview][role="button"].is-previewing::after {
+    content: "Ⅱ";
+  }
+}
+
 .project-contributions .project-media {
   width: 100%;
   height: auto;
@@ -253,16 +284,16 @@ h4 {
   align-items: center;
 }
 
-.project-media,
 .project-content {
+  min-width: 0;
   margin: 20px;
 }
 
 .project-media {
+  margin: 20px auto;
   position: relative;
   width: min(160px, calc(100% - 24px));
   height: 60px;
-  margin-inline: auto;
   overflow: hidden;
   background: #f4f4f4;
 }
@@ -302,10 +333,6 @@ h4 {
 
 .project-media.is-previewing .project-video {
   opacity: 1;
-}
-
-.project-content {
-  min-width: 0;
 }
 
 .project-content h3 a {
