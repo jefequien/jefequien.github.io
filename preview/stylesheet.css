@@ -224,7 +224,30 @@ h4 {
 }
 
 .project-contributions .project-media,
-.project-contributions .project-content {
+.project-contributions [data-preview] {
+  cursor: pointer;
+}
+
+@media (hover: none) and (prefers-reduced-motion: no-preference) {
+  [data-preview]::after {
+    content: "▶";
+    position: absolute;
+    right: 6px;
+    bottom: 6px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background: rgb(0 0 0 / 70%);
+    color: #fff;
+    font-size: 14px;
+    pointer-events: none;
+  }
+
+  [data-preview].is-previewing::after {
+    content: "Ⅱ";
+  }
+}
+
+.project-content {
   margin: 8px 0;
 }
 
