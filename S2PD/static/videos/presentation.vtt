@@ -1,0 +1,29 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:06.800
+We introduce S2PD: serial-to-parallel diffusion, for physically and logically consistent video generation.
+
+2
+00:00:07.400 --> 00:00:13.430
+Bidirectional video models break simple rules, even when trained on enormous amounts of in-distribution data.
+
+3
+00:00:14.030 --> 00:00:20.230
+Our model uses autoregressive diffusion at high noise before switching to bidirectional diffusion at low noise.
+
+4
+00:00:20.830 --> 00:00:27.430
+We use block diffusion with small block sizes to commit to structure serially, before refining the whole video together in parallel.
+
+5
+00:00:28.030 --> 00:00:32.200
+Our method produces more coherent video on a variety of games and simulations.
+
+6
+00:00:32.800 --> 00:00:40.500
+Compared to other purely serial generation methods, S2PD generates more temporally stable video while reducing sampling time.
+
+7
+00:00:41.100 --> 00:00:44.867
+Thank you for listening. For more details, visit our project page.
