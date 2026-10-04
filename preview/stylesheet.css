@@ -477,3 +477,9 @@ footer p {
     transition: none;
   }
 }
+
+/* Keep every dataset visible in the square S2PD mosaic at all viewport sizes. */
+.project-media-square {
+  height: auto;
+  aspect-ratio: 1;
+}
