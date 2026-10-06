@@ -908,3 +908,8 @@ footer {
     transition: none;
   }
 }
+
+/* Keep local review links separate from the public project links. */
+.development-links {
+  margin-top: 12px;
+}
