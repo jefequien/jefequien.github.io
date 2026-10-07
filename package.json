@@ -14,9 +14,9 @@
     "test:browser": "node --test scripts/browser.test.mjs"
   },
   "devDependencies": {
-    "html-validate": "11.6.0",
+    "html-validate": "11.16.1",
     "playwright": "1.63.0",
-    "prettier": "3.9.6"
+    "prettier": "3.9.9"
   },
   "engines": {
     "node": ">=24 <25"
