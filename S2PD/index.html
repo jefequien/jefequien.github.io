@@ -17,7 +17,7 @@
       S2PD: Serial-to-Parallel Diffusion for Physically and Logically Consistent Video Generation
     </title>
     <link rel="stylesheet" href="./static/css/typography.css" />
-    <link rel="stylesheet" href="./static/css/index.css?v=25" />
+    <link rel="stylesheet" href="./static/css/index.css?v=26" />
     <script defer src="./static/js/index.js?v=14"></script>
   </head>
   <body>
@@ -92,6 +92,7 @@
                     preload="metadata"
                     aria-label="S2PD samples on Rubik&#x27;s Cube Real"
                     src="./static/videos/carousel/rubiks_real.mp4"
+                    poster="./static/posters/carousel/rubiks_real.webp"
                   ></video>
                 </figure>
                 <figure
@@ -111,6 +112,7 @@
                     preload="metadata"
                     aria-label="S2PD samples on Conway"
                     src="./static/videos/carousel/conway.mp4"
+                    poster="./static/posters/carousel/conway.webp"
                   ></video>
                 </figure>
                 <figure
@@ -130,6 +132,7 @@
                     preload="metadata"
                     aria-label="S2PD samples on Chess"
                     src="./static/videos/carousel/chess.mp4"
+                    poster="./static/posters/carousel/chess.webp"
                   ></video>
                 </figure>
                 <figure
@@ -149,6 +152,7 @@
                     preload="metadata"
                     aria-label="S2PD samples on 2048"
                     data-src="./static/videos/carousel/2048.mp4"
+                    poster="./static/posters/carousel/2048.webp"
                   ></video>
                 </figure>
                 <figure
@@ -168,6 +172,7 @@
                     preload="metadata"
                     aria-label="S2PD samples on Fifteen Puzzle"
                     data-src="./static/videos/carousel/fifteen_puzzle.mp4"
+                    poster="./static/posters/carousel/fifteen_puzzle.webp"
                   ></video>
                 </figure>
                 <figure
@@ -187,6 +192,7 @@
                     preload="metadata"
                     aria-label="S2PD samples on Tetris"
                     data-src="./static/videos/carousel/tetris.mp4"
+                    poster="./static/posters/carousel/tetris.webp"
                   ></video>
                 </figure>
                 <figure
@@ -206,6 +212,7 @@
                     preload="metadata"
                     aria-label="S2PD samples on Snake"
                     data-src="./static/videos/carousel/snake.mp4"
+                    poster="./static/posters/carousel/snake.webp"
                   ></video>
                 </figure>
                 <figure
@@ -225,6 +232,7 @@
                     preload="metadata"
                     aria-label="S2PD samples on Rubik&#x27;s Cube 3D"
                     data-src="./static/videos/carousel/rubiks_3d.mp4"
+                    poster="./static/posters/carousel/rubiks_3d.webp"
                   ></video>
                 </figure>
                 <figure
@@ -244,6 +252,7 @@
                     preload="metadata"
                     aria-label="S2PD samples on Double Pendulum"
                     data-src="./static/videos/carousel/double_pendulum.mp4"
+                    poster="./static/posters/carousel/double_pendulum.webp"
                   ></video>
                 </figure>
                 <figure
@@ -263,6 +272,7 @@
                     preload="metadata"
                     aria-label="S2PD samples on Three Body"
                     data-src="./static/videos/carousel/three_body.mp4"
+                    poster="./static/posters/carousel/three_body.webp"
                   ></video>
                 </figure>
                 <figure
@@ -282,6 +292,7 @@
                     preload="metadata"
                     aria-label="S2PD samples on Colliding Balls 2D"
                     data-src="./static/videos/carousel/colliding_balls.mp4"
+                    poster="./static/posters/carousel/colliding_balls.webp"
                   ></video>
                 </figure>
                 <figure
@@ -301,6 +312,7 @@
                     preload="metadata"
                     aria-label="S2PD samples on Colliding Balls 3D"
                     data-src="./static/videos/carousel/colliding_balls_3d.mp4"
+                    poster="./static/posters/carousel/colliding_balls_3d.webp"
                   ></video>
                 </figure>
                 <figure
@@ -320,6 +332,7 @@
                     preload="metadata"
                     aria-label="S2PD samples on Pong"
                     data-src="./static/videos/carousel/pong.mp4"
+                    poster="./static/posters/carousel/pong.webp"
                   ></video>
                 </figure>
                 <figure
@@ -339,6 +352,7 @@
                     preload="metadata"
                     aria-label="S2PD samples on Kubric MOVi-A"
                     data-src="./static/videos/carousel/kubric_movi_a.mp4"
+                    poster="./static/posters/carousel/kubric_movi_a.webp"
                   ></video>
                 </figure>
                 <figure
@@ -358,6 +372,7 @@
                     preload="metadata"
                     aria-label="S2PD samples on Kubric MOVi-C"
                     data-src="./static/videos/carousel/kubric_movi_c.mp4"
+                    poster="./static/posters/carousel/kubric_movi_c.webp"
                   ></video>
                 </figure>
                 <figure
@@ -377,6 +392,7 @@
                     preload="metadata"
                     aria-label="S2PD samples on MPMWorlds"
                     data-src="./static/videos/carousel/mpm_worlds.mp4"
+                    poster="./static/posters/carousel/mpm_worlds.webp"
                   ></video>
                 </figure>
               </div>
@@ -435,7 +451,13 @@
             <h2>Overview</h2>
           </div>
 
-          <video class="presentation-video" controls playsinline preload="metadata">
+          <video
+            class="presentation-video"
+            controls
+            playsinline
+            preload="metadata"
+            poster="./static/posters/presentation.webp"
+          >
             <source src="./static/videos/presentation.mp4" type="video/mp4" />
             <track
               kind="subtitles"
@@ -468,6 +490,7 @@
               width="2752"
               height="2042"
               src="static/videos/teaser_figure.mp4"
+              poster="./static/posters/teaser_figure.webp"
             ></video>
           </figure>
           <h3 class="results-subheading">One image, multiple continuations.</h3>
@@ -481,6 +504,7 @@
                 width="2756"
                 height="1072"
                 src="static/videos/diversity.mp4"
+                poster="./static/posters/diversity.webp"
               ></video>
             </figure>
           </div>
@@ -494,6 +518,7 @@
               width="2178"
               height="1140"
               src="static/videos/temporal_stability.mp4"
+              poster="./static/posters/temporal_stability.webp"
             ></video>
           </figure>
         </div>
@@ -542,6 +567,7 @@
                         inert
                         aria-label="Samples for Conway"
                         data-src="./static/videos/comparisons/conway.mp4"
+                        poster="./static/posters/comparisons/conway.webp"
                       ></video>
                       <video
                         class="evaluation-comparison-video"
@@ -555,6 +581,7 @@
                         preload="none"
                         aria-label="Diagnostics for Conway"
                         data-src="./static/videos/diagnostic-comparisons/conway.mp4"
+                        poster="./static/posters/diagnostic-comparisons/conway.webp"
                       ></video>
                     </div>
                   </div>
@@ -583,6 +610,7 @@
                         inert
                         aria-label="Samples for Chess"
                         data-src="./static/videos/comparisons/chess.mp4"
+                        poster="./static/posters/comparisons/chess.webp"
                       ></video>
                       <video
                         class="evaluation-comparison-video"
@@ -596,6 +624,7 @@
                         preload="none"
                         aria-label="Diagnostics for Chess"
                         data-src="./static/videos/diagnostic-comparisons/chess.mp4"
+                        poster="./static/posters/diagnostic-comparisons/chess.webp"
                       ></video>
                     </div>
                   </div>
@@ -624,6 +653,7 @@
                         inert
                         aria-label="Samples for 2048"
                         data-src="./static/videos/comparisons/2048.mp4"
+                        poster="./static/posters/comparisons/2048.webp"
                       ></video>
                       <video
                         class="evaluation-comparison-video"
@@ -637,6 +667,7 @@
                         preload="none"
                         aria-label="Diagnostics for 2048"
                         data-src="./static/videos/diagnostic-comparisons/2048.mp4"
+                        poster="./static/posters/diagnostic-comparisons/2048.webp"
                       ></video>
                     </div>
                   </div>
@@ -665,6 +696,7 @@
                         inert
                         aria-label="Samples for Fifteen Puzzle"
                         data-src="./static/videos/comparisons/fifteen_puzzle.mp4"
+                        poster="./static/posters/comparisons/fifteen_puzzle.webp"
                       ></video>
                       <video
                         class="evaluation-comparison-video"
@@ -678,6 +710,7 @@
                         preload="none"
                         aria-label="Diagnostics for Fifteen Puzzle"
                         data-src="./static/videos/diagnostic-comparisons/fifteen_puzzle.mp4"
+                        poster="./static/posters/diagnostic-comparisons/fifteen_puzzle.webp"
                       ></video>
                     </div>
                   </div>
@@ -706,6 +739,7 @@
                         inert
                         aria-label="Samples for Tetris"
                         data-src="./static/videos/comparisons/tetris.mp4"
+                        poster="./static/posters/comparisons/tetris.webp"
                       ></video>
                       <video
                         class="evaluation-comparison-video"
@@ -719,6 +753,7 @@
                         preload="none"
                         aria-label="Diagnostics for Tetris"
                         data-src="./static/videos/diagnostic-comparisons/tetris.mp4"
+                        poster="./static/posters/diagnostic-comparisons/tetris.webp"
                       ></video>
                     </div>
                   </div>
@@ -747,6 +782,7 @@
                         inert
                         aria-label="Samples for Snake"
                         data-src="./static/videos/comparisons/snake.mp4"
+                        poster="./static/posters/comparisons/snake.webp"
                       ></video>
                       <video
                         class="evaluation-comparison-video"
@@ -760,6 +796,7 @@
                         preload="none"
                         aria-label="Diagnostics for Snake"
                         data-src="./static/videos/diagnostic-comparisons/snake.mp4"
+                        poster="./static/posters/diagnostic-comparisons/snake.webp"
                       ></video>
                     </div>
                   </div>
@@ -788,6 +825,7 @@
                         inert
                         aria-label="Samples for Rubik&#x27;s Cube 3D"
                         data-src="./static/videos/comparisons/rubiks_3d.mp4"
+                        poster="./static/posters/comparisons/rubiks_3d.webp"
                       ></video>
                       <video
                         class="evaluation-comparison-video"
@@ -801,6 +839,7 @@
                         preload="none"
                         aria-label="Diagnostics for Rubik&#x27;s Cube 3D"
                         data-src="./static/videos/diagnostic-comparisons/rubiks_3d.mp4"
+                        poster="./static/posters/diagnostic-comparisons/rubiks_3d.webp"
                       ></video>
                     </div>
                   </div>
@@ -834,6 +873,7 @@
                         inert
                         aria-label="Samples for Double Pendulum"
                         data-src="./static/videos/comparisons/double_pendulum.mp4"
+                        poster="./static/posters/comparisons/double_pendulum.webp"
                       ></video>
                       <video
                         class="evaluation-comparison-video"
@@ -847,6 +887,7 @@
                         preload="none"
                         aria-label="Diagnostics for Double Pendulum"
                         data-src="./static/videos/diagnostic-comparisons/double_pendulum.mp4"
+                        poster="./static/posters/diagnostic-comparisons/double_pendulum.webp"
                       ></video>
                     </div>
                   </div>
@@ -875,6 +916,7 @@
                         inert
                         aria-label="Samples for Three Body"
                         data-src="./static/videos/comparisons/three_body.mp4"
+                        poster="./static/posters/comparisons/three_body.webp"
                       ></video>
                       <video
                         class="evaluation-comparison-video"
@@ -888,6 +930,7 @@
                         preload="none"
                         aria-label="Diagnostics for Three Body"
                         data-src="./static/videos/diagnostic-comparisons/three_body.mp4"
+                        poster="./static/posters/diagnostic-comparisons/three_body.webp"
                       ></video>
                     </div>
                   </div>
@@ -916,6 +959,7 @@
                         inert
                         aria-label="Samples for Colliding Balls 2D"
                         data-src="./static/videos/comparisons/colliding_balls.mp4"
+                        poster="./static/posters/comparisons/colliding_balls.webp"
                       ></video>
                       <video
                         class="evaluation-comparison-video"
@@ -929,6 +973,7 @@
                         preload="none"
                         aria-label="Diagnostics for Colliding Balls 2D"
                         data-src="./static/videos/diagnostic-comparisons/colliding_balls.mp4"
+                        poster="./static/posters/diagnostic-comparisons/colliding_balls.webp"
                       ></video>
                     </div>
                   </div>
@@ -957,6 +1002,7 @@
                         inert
                         aria-label="Samples for Colliding Balls 3D"
                         data-src="./static/videos/comparisons/colliding_balls_3d.mp4"
+                        poster="./static/posters/comparisons/colliding_balls_3d.webp"
                       ></video>
                       <video
                         class="evaluation-comparison-video"
@@ -970,6 +1016,7 @@
                         preload="none"
                         aria-label="Diagnostics for Colliding Balls 3D"
                         data-src="./static/videos/diagnostic-comparisons/colliding_balls_3d.mp4"
+                        poster="./static/posters/diagnostic-comparisons/colliding_balls_3d.webp"
                       ></video>
                     </div>
                   </div>
@@ -998,6 +1045,7 @@
                         inert
                         aria-label="Samples for Pong"
                         data-src="./static/videos/comparisons/pong.mp4"
+                        poster="./static/posters/comparisons/pong.webp"
                       ></video>
                       <video
                         class="evaluation-comparison-video"
@@ -1011,6 +1059,7 @@
                         preload="none"
                         aria-label="Diagnostics for Pong"
                         data-src="./static/videos/diagnostic-comparisons/pong.mp4"
+                        poster="./static/posters/diagnostic-comparisons/pong.webp"
                       ></video>
                     </div>
                   </div>
@@ -1041,6 +1090,7 @@
                     preload="none"
                     aria-label="Samples for Kubric MOVi-A"
                     data-src="./static/videos/comparisons/kubric_movi_a.mp4"
+                    poster="./static/posters/comparisons/kubric_movi_a.webp"
                   ></video>
                   <figcaption>
                     <strong>Kubric MOVi-A</strong>
@@ -1064,6 +1114,7 @@
                     preload="none"
                     aria-label="Samples for Kubric MOVi-C"
                     data-src="./static/videos/comparisons/kubric_movi_c.mp4"
+                    poster="./static/posters/comparisons/kubric_movi_c.webp"
                   ></video>
                   <figcaption>
                     <strong>Kubric MOVi-C</strong>
@@ -1087,6 +1138,7 @@
                     preload="none"
                     aria-label="Samples for MPMWorlds"
                     data-src="./static/videos/comparisons/mpm_worlds.mp4"
+                    poster="./static/posters/comparisons/mpm_worlds.webp"
                   ></video>
                   <figcaption>
                     <strong>MPMWorlds</strong>
@@ -1110,6 +1162,7 @@
                     preload="none"
                     aria-label="Samples for Rubik&#x27;s Cube Real"
                     data-src="./static/videos/comparisons/rubiks_real.mp4"
+                    poster="./static/posters/comparisons/rubiks_real.webp"
                   ></video>
                   <figcaption>
                     <strong>Rubik&#x27;s Cube Real</strong>
