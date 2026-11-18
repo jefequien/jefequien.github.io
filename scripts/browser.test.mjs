@@ -77,7 +77,8 @@ for (const browserType of [chromium, firefox]) {
         });
         // Reload with request recording to catch accidental eager media downloads.
         await page.reload();
-        await page.locator("summary").click();
+        assert(await page.locator(".project-contributions").evaluate((element) => element.open));
+        assert.equal(await page.locator("#miscellanea-heading").count(), 0);
         await page.waitForTimeout(200);
         assert.equal(requests.length, 0, "opening Contributions must not download videos");
         assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
@@ -174,7 +175,6 @@ for (const browserType of [chromium, firefox]) {
       await expectPlaying(first);
       await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
       await expectUnloaded(page);
-      await page.locator("summary").click();
       await page.locator("[data-preview]").last().hover();
       await expectPlaying(page.locator("[data-preview]").last());
       await page.locator("summary").click();
