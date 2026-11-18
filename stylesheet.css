@@ -350,30 +350,6 @@ h4 {
   gap: 0 0.4rem;
 }
 
-.misc-item {
-  display: grid;
-  grid-template-columns: 25% 75%;
-  align-items: center;
-}
-
-.misc-item > * {
-  margin: 20px;
-}
-
-.colored-box {
-  width: min(160px, calc(100% - 40px));
-  padding: 20px;
-  color: #000;
-  text-align: center;
-  background-color: #aaba9e;
-  border-radius: 10px;
-}
-
-.colored-box h3 {
-  font-size: 22px;
-  font-weight: 400;
-}
-
 footer {
   padding: 20px 0 0;
 }
@@ -430,8 +406,7 @@ footer p {
     align-items: center;
   }
 
-  .project,
-  .misc-item {
+  .project {
     grid-template-columns: 1fr;
   }
 
@@ -456,14 +431,6 @@ footer p {
 
   .project-content {
     margin: 12px 4px 20px;
-  }
-
-  .misc-item > * {
-    margin: 12px 4px;
-  }
-
-  .colored-box {
-    width: calc(100% - 8px);
   }
 
   footer {
